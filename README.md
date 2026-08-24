@@ -131,6 +131,8 @@ Playwright starts the Next.js dev server unless one is already running.
 
 ### GitHub and Vercel
 
+This portfolio is connected to the private `AmupitanTJ/tosin-joseph-portfolio` repository and the `tosin-joseph-web` Vercel project. The `main` branch is the production branch.
+
 1. Create or select the GitHub repository and push the production branch.
 2. In Vercel, choose **Add New → Project**, import that repository, and keep the framework preset set to Next.js.
 3. Set the production branch to the repository's default branch.
