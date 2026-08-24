@@ -6,9 +6,10 @@ test("index presents Tosin Joseph and primary sections", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "I build fast, thoughtful web experiences.",
   );
-  await expect(page.getByRole("link", { name: "This site" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Moreecom" })).toBeVisible();
-  await expect(page.getByText("In progress", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "TROVE Calc" })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "GSAP Text Animation" }),
+  ).toBeVisible();
   await expect(
     page.getByRole("heading", {
       name: "Have a product, interface, or frontend role in mind?",
@@ -27,12 +28,12 @@ test("projects index and a case file load", async ({ page }) => {
   ).toBeVisible();
   await page
     .getByRole("article")
-    .filter({ hasText: "This site" })
-    .getByRole("link", { name: "This site" })
+    .filter({ hasText: "TROVE Calc" })
+    .getByRole("link", { name: "TROVE Calc" })
     .click();
-  await expect(page).toHaveURL(/\/projects\/registration$/);
+  await expect(page).toHaveURL(/\/projects\/trove-calculator$/);
   await expect(
-    page.getByRole("heading", { level: 1, name: "This site" }),
+    page.getByRole("heading", { level: 1, name: "TROVE Calc" }),
   ).toBeVisible();
 });
 
@@ -40,8 +41,8 @@ test("legacy work paths redirect to projects", async ({ page }) => {
   await page.goto("/work");
   await expect(page).toHaveURL(/\/projects\/?$/);
 
-  await page.goto("/work/registration");
-  await expect(page).toHaveURL(/\/projects\/registration$/);
+  await page.goto("/work/trove-calculator");
+  await expect(page).toHaveURL(/\/projects\/trove-calculator$/);
 });
 
 test("resume and notes structure are reachable", async ({ page }) => {
@@ -103,7 +104,7 @@ test("reduced motion keeps homepage content visible", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
 
-  await expect(page.getByRole("link", { name: "This site" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "TROVE Calc" })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Case studies" }),
   ).toBeVisible();

@@ -8,8 +8,8 @@ const pages = [
   { path: "/notes", title: "Notes — Tosin Joseph" },
   { path: "/contact", title: "Contact — Tosin Joseph" },
   {
-    path: "/projects/registration",
-    title: "This site — Tosin Joseph",
+    path: "/projects/trove-calculator",
+    title: "TROVE Calc — Tosin Joseph",
   },
 ] as const;
 
@@ -59,7 +59,7 @@ test("metadata routes expose sitemap, robots, and manifest", async ({
 }) => {
   const sitemap = await request.get("/sitemap.xml");
   expect(sitemap.ok()).toBe(true);
-  expect(await sitemap.text()).toContain("/projects/registration");
+  expect(await sitemap.text()).toContain("/projects/trove-calculator");
 
   const robots = await request.get("/robots.txt");
   expect(robots.ok()).toBe(true);

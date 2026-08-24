@@ -41,13 +41,9 @@ describe("project register", () => {
     const featured = getFeaturedProjects();
     expect(featured.every((project) => project.featured)).toBe(true);
     expect(featured.map((project) => project.slug)).toEqual([
-      "registration",
-      "newecommerce",
-      "estatel",
+      "trove-calculator",
+      "gsap-text-animation",
     ]);
-    expect(featured.some((project) => project.status === "in-progress")).toBe(
-      true,
-    );
   });
 
   it("finds a project by slug and ignores unknown slugs", () => {
@@ -61,7 +57,7 @@ describe("project register", () => {
   it("lists every slug once", () => {
     const slugs = getProjectSlugs();
     expect(new Set(slugs).size).toBe(slugs.length);
-    expect(slugs).toContain("registration");
+    expect(slugs).toContain("trove-calculator");
   });
 
   it("resolves adjacent projects in register order", () => {
@@ -100,6 +96,12 @@ describe("project register", () => {
       expect(project).not.toHaveProperty("testimonial");
       expect(project).not.toHaveProperty("clients");
       expect(project).not.toHaveProperty("metrics");
+    }
+  });
+
+  it("publishes only projects owned by the portfolio owner", () => {
+    for (const project of getProjects()) {
+      expect(project.githubUrl).toMatch(/^https:\/\/github\.com\/AmupitanTJ\//);
     }
   });
 
