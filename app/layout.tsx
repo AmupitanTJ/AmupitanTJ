@@ -30,10 +30,6 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
-  icons: {
-    icon: [{ url: "/icon", type: "image/png", sizes: "32x32" }],
-    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
-  },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.description,
