@@ -131,7 +131,7 @@ Playwright starts the Next.js dev server unless one is already running.
 
 ### GitHub and Vercel
 
-This portfolio is connected to the private `AmupitanTJ/tosin-joseph-portfolio` repository and the `tosin-joseph-web` Vercel project. The `main` branch is the production branch.
+This portfolio is connected to the public [`AmupitanTJ/AmupitanTJ`](https://github.com/AmupitanTJ/AmupitanTJ) repository and the `amupitantj` Vercel project. The `main` branch is the production branch, and the canonical production URL is [`https://amupitantj.vercel.app`](https://amupitantj.vercel.app).
 
 1. Create or select the GitHub repository and push the production branch.
 2. In Vercel, choose **Add New → Project**, import that repository, and keep the framework preset set to Next.js.
@@ -174,10 +174,10 @@ Do not publish registrar credentials, DNS transfer codes, API keys, or screensho
 After the custom domain is serving the latest production deployment:
 
 ```text
-https://your-domain.example/
-https://your-domain.example/sitemap.xml
-https://your-domain.example/robots.txt
-https://your-domain.example/opengraph-image
+https://amupitantj.vercel.app/
+https://amupitantj.vercel.app/sitemap.xml
+https://amupitantj.vercel.app/robots.txt
+https://amupitantj.vercel.app/opengraph-image
 ```
 
 Confirm that the sitemap, robots host and sitemap directive, canonical tags, Open Graph URLs, and JSON-LD all use the same production origin. Submit the contact form with a real inbox you control, confirm delivery and reply-to behaviour, then remove the test message. Check the deployment runtime logs for errors without copying request bodies or credentials into issues or documentation.
