@@ -138,6 +138,7 @@ This portfolio is connected to the public [`AmupitanTJ/AmupitanTJ`](https://gith
 3. Set the production branch to the repository's default branch.
 4. Keep Vercel's Git integration enabled. Every pull request and every push to a non-production branch will receive an isolated preview deployment; merges to the production branch create production deployments.
 5. Require the project's lint, typecheck, unit, and end-to-end checks before merging pull requests.
+6. In **Project Settings → Deployment Protection**, leave Vercel Authentication disabled for this public portfolio. Enable protection only for private preview projects.
 
 Do not add a separate deployment workflow unless the project needs a custom build pipeline. Vercel's Git integration already creates and updates pull-request previews without storing a Vercel token in GitHub.
 
