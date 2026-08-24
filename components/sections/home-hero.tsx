@@ -1,43 +1,41 @@
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { site } from "@/content/site";
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { NavLink } from "@/components/layout/nav-link";
+import { SectionReveal } from "@/components/section-reveal";
+import { home } from "@/content/home";
 
 export function HomeHero() {
   return (
-    <section aria-labelledby="home-title" className="pb-6">
-      <Reveal>
-        <div className="flex items-start justify-between gap-6">
-          <p className="folio">01 / Index</p>
-          <p className="folio hidden sm:block">Folio {new Date().getFullYear()}</p>
+    <Container
+      as="section"
+      className="pt-12 pb-10 sm:pt-20 sm:pb-12"
+      aria-labelledby="home-title"
+    >
+      <SectionReveal>
+        <p className="meta text-muted-foreground">{home.eyebrow}</p>
+        <h1
+          id="home-title"
+          className="display text-foreground mt-4 max-w-3xl text-[1.85rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {home.heading}
+        </h1>
+        <p className="text-muted-foreground mt-6 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
+          {home.lede}
+        </p>
+        <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button asChild className="w-full sm:w-auto">
+            <NavLink href={home.primaryCta.href}>
+              {home.primaryCta.label}
+            </NavLink>
+          </Button>
+          <Button asChild variant="secondary" className="w-full sm:w-auto">
+            <NavLink href={home.secondaryCta.href}>
+              {home.secondaryCta.label}
+            </NavLink>
+          </Button>
         </div>
-      </Reveal>
-
-      <RevealGroup className="mt-8 grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
-        <RevealItem>
-          <h1
-            id="home-title"
-            className="font-display text-[clamp(4.4rem,16vw,10.5rem)] leading-[0.78] font-medium tracking-[-0.04em]"
-          >
-            <span className="block">Tosin</span>
-            <span className="block italic">Joseph</span>
-          </h1>
-        </RevealItem>
-        <RevealItem className="space-y-3 pb-2">
-          <p className="folio">{site.role}</p>
-          <p className="text-sm leading-6 text-ink-soft">
-            React · TypeScript · Tailwind CSS
-          </p>
-          <p className="folio">{site.location}</p>
-        </RevealItem>
-      </RevealGroup>
-
-      <Reveal className="mt-10 max-w-2xl" delay={0.12}>
-        <p className="font-display text-2xl leading-snug text-ink sm:text-3xl">
-          {site.headline}
-        </p>
-        <p className="mt-5 text-base leading-7 text-ink-soft sm:text-lg">
-          {site.lede}
-        </p>
-      </Reveal>
-    </section>
+        <p className="meta text-muted-foreground mt-6">{home.availability}</p>
+      </SectionReveal>
+    </Container>
   );
 }

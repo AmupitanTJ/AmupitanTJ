@@ -20,44 +20,80 @@ export type ApproachItem = {
   body: string;
 };
 
-export type ProjectLink = {
-  label: string;
-  href: string;
+export type MediaAsset = {
+  src: string;
+  alt: string;
 };
 
-export type ProjectSection = {
-  heading: string;
-  body: string;
-};
+export type ProjectStatus = "production" | "study" | "in-progress";
 
 export type Project = {
-  slug: string;
   title: string;
-  summary: string;
-  description: string;
-  year: string;
+  slug: string;
+  shortDescription: string;
+  longDescription: string;
   role: string;
-  status: "production" | "study";
-  featured: boolean;
+  status: ProjectStatus;
+  year: string;
   stack: string[];
-  href?: string;
-  repo?: ProjectLink;
-  sections: ProjectSection[];
-  notes?: string;
+  coverImage: MediaAsset | null;
+  gallery: MediaAsset[];
+  liveUrl: string | null;
+  githubUrl: string | null;
+  challenge: string;
+  solution: string;
+  keyDecisions: string[];
+  outcomes: string[];
+  nextSteps: string[];
+  featured: boolean;
 };
 
-export type SiteContent = {
+export type Experience = {
+  title: string;
+  organization: string;
+  location: string;
+  start: string;
+  end: string | null;
+  current: boolean;
+  summary: string;
+  highlights: string[];
+};
+
+export type SiteMetadata = {
   name: string;
   shortName: string;
   role: string;
   location: string;
   headline: string;
-  lede: string;
-  focus: string;
-  email?: string;
+  description: string;
   url: string;
-  nav: NavItem[];
+  locale: string;
+  email?: string;
   social: SocialLink[];
+};
+
+export type SiteContent = SiteMetadata & {
+  focus: string;
+  nav: NavItem[];
+  resumeHref: string;
+};
+
+export type HomeLink = {
+  label: string;
+  href: string;
+};
+
+export type HomeContent = {
+  eyebrow: string;
+  heading: string;
+  lede: string;
+  availability: string;
+  primaryCta: HomeLink;
+  secondaryCta: HomeLink;
+  stack: string[];
+  about: string[];
+  contactHeading: string;
+  contactBody: string;
 };
 
 export type AboutContent = {
@@ -66,4 +102,12 @@ export type AboutContent = {
   approach: ApproachItem[];
   skills: SkillGroup[];
   now: string;
+};
+
+export type Note = {
+  title: string;
+  slug: string;
+  date: string;
+  summary: string;
+  draft: boolean;
 };

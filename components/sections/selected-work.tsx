@@ -1,29 +1,32 @@
-import Link from "next/link";
-import { DrawRule, Reveal } from "@/components/motion/reveal";
-import { WorkIndex } from "@/components/work/work-index";
+import { Container } from "@/components/container";
+import { ProjectCard } from "@/components/project-card";
+import { SectionHeading } from "@/components/section-heading";
+import { SectionReveal } from "@/components/section-reveal";
 import type { Project } from "@/types";
 
 export function SelectedWork({ projects }: { projects: Project[] }) {
   return (
-    <section aria-labelledby="selected-work-title" className="pt-6">
-      <DrawRule />
-      <Reveal className="flex items-end justify-between gap-6 pt-10">
-        <div>
-          <p className="folio">02 / Selected work</p>
-          <h2
-            id="selected-work-title"
-            className="font-display mt-3 text-4xl tracking-tight md:text-5xl"
-          >
-            On the desk
-          </h2>
-        </div>
-        <Link href="/work" className="folio hover:text-mark">
-          Full register →
-        </Link>
-      </Reveal>
-      <div className="mt-8">
-        <WorkIndex projects={projects} />
+    <Container
+      as="section"
+      id="work"
+      className="py-section scroll-mt-20"
+      aria-labelledby="selected-work-title"
+    >
+      <SectionReveal>
+        <SectionHeading
+          eyebrow="Selected work"
+          title="Case studies"
+          id="selected-work-title"
+          description="A selection of interface studies and production-minded builds, with each project clearly labelled by status."
+        />
+      </SectionReveal>
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project, index) => (
+          <SectionReveal key={project.slug} delay={index * 0.05}>
+            <ProjectCard project={project} />
+          </SectionReveal>
+        ))}
       </div>
-    </section>
+    </Container>
   );
 }

@@ -1,175 +1,229 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, type UseFormRegisterReturn } from "react-hook-form";
+import { Button } from "@/components/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { buildMailto, hasContactErrors, validateContact } from "@/lib/contact";
-import type { ContactFieldErrors, ContactPayload } from "@/types";
+import { contactSchema, type ContactFormValues } from "@/lib/contact";
 
-const empty: ContactPayload = {
+const defaultValues: ContactFormValues = {
   name: "",
   email: "",
+  subject: "",
   message: "",
+  website: "",
 };
 
 type ContactFormProps = {
   to?: string;
 };
 
+type SubmissionState =
+  | { kind: "idle" }
+  | { kind: "success"; message: string }
+  | { kind: "error"; message: string };
+
 export function ContactForm({ to }: ContactFormProps) {
-  const [values, setValues] = useState<ContactPayload>(empty);
-  const [errors, setErrors] = useState<ContactFieldErrors>({});
-  const [status, setStatus] = useState<"idle" | "ready" | "copied">("idle");
+  const [submission, setSubmission] = useState<SubmissionState>({
+    kind: "idle",
+  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues,
+    mode: "onBlur",
+  });
 
-  function update<K extends keyof ContactPayload>(key: K, value: string) {
-    setValues((current) => ({ ...current, [key]: value }));
-  }
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const nextErrors = validateContact(values);
-    setErrors(nextErrors);
-
-    if (hasContactErrors(nextErrors)) {
-      setStatus("idle");
-      return;
-    }
-
-    if (to) {
-      window.location.href = buildMailto(to, values);
-      setStatus("ready");
-      return;
-    }
-
-    const text = [
-      `From: ${values.name.trim()} <${values.email.trim()}>`,
-      "",
-      values.message.trim(),
-    ].join("\n");
+  const onSubmit = handleSubmit(async (values) => {
+    setSubmission({ kind: "idle" });
 
     try {
-      await navigator.clipboard.writeText(text);
-      setStatus("copied");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const result = (await response.json()) as {
+        ok?: boolean;
+        message?: string;
+        fieldErrors?: Partial<Record<keyof ContactFormValues, string[]>>;
+      };
+
+      if (!response.ok || !result.ok) {
+        for (const [field, messages] of Object.entries(
+          result.fieldErrors ?? {},
+        )) {
+          const message = messages?.[0];
+          if (message && field in defaultValues) {
+            setError(field as keyof ContactFormValues, {
+              type: "server",
+              message,
+            });
+          }
+        }
+
+        setSubmission({
+          kind: "error",
+          message:
+            result.message ??
+            "Your message could not be sent. Please try again.",
+        });
+        return;
+      }
+
+      reset(defaultValues);
+      setSubmission({
+        kind: "success",
+        message: "Thanks—your message has been sent successfully.",
+      });
     } catch {
-      setStatus("ready");
+      setSubmission({
+        kind: "error",
+        message:
+          "A network error stopped the message from sending. Please try again.",
+      });
     }
-  }
+  });
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
-      <Field
-        id="name"
-        label="Name"
-        error={errors.name}
-        value={values.name}
-        onChange={(value) => update("name", value)}
-        autoComplete="name"
-      />
-      <Field
-        id="email"
-        label="Email"
-        type="email"
-        error={errors.email}
-        value={values.email}
-        onChange={(value) => update("email", value)}
-        autoComplete="email"
-      />
-      <div className="space-y-2">
-        <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
-          name="message"
-          rows={6}
-          value={values.message}
-          onChange={(event) => update("message", event.target.value)}
-          aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-error" : undefined}
-          className="rounded-none border-rule bg-paper-bright"
+    <div>
+      <form onSubmit={onSubmit} className="space-y-5" noValidate>
+        <TextField
+          id="name"
+          label="Name"
+          autoComplete="name"
+          error={errors.name?.message}
+          disabled={isSubmitting}
+          registration={register("name")}
         />
-        {errors.message ? (
-          <p id="message-error" className="text-sm text-mark">
-            {errors.message}
-          </p>
-        ) : null}
-      </div>
-      <Button
-        type="submit"
-        className="rounded-none px-6 tracking-[0.14em] uppercase"
-      >
-        {to ? "Open mail draft" : "Prepare message"}
-      </Button>
-      <StatusMessage status={status} hasEmail={Boolean(to)} />
-    </form>
-  );
-}
+        <TextField
+          id="email"
+          label="Email"
+          type="email"
+          autoComplete="email"
+          error={errors.email?.message}
+          disabled={isSubmitting}
+          registration={register("email")}
+        />
+        <TextField
+          id="subject"
+          label="Subject"
+          autoComplete="off"
+          error={errors.subject?.message}
+          disabled={isSubmitting}
+          registration={register("subject")}
+        />
 
-function Field({
-  id,
-  label,
-  value,
-  onChange,
-  error,
-  type = "text",
-  autoComplete,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  type?: string;
-  autoComplete?: string;
-}) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor={id}>{label}</Label>
-      <Input
-        id={id}
-        name={id}
-        type={type}
-        value={value}
-        autoComplete={autoComplete}
-        onChange={(event) => onChange(event.target.value)}
-        aria-invalid={Boolean(error)}
-        aria-describedby={error ? `${id}-error` : undefined}
-        className="rounded-none border-rule bg-paper-bright"
-      />
-      {error ? (
-        <p id={`${id}-error`} className="text-sm text-mark">
-          {error}
+        <div className="space-y-2">
+          <Label htmlFor="message">Message</Label>
+          <Textarea
+            id="message"
+            rows={7}
+            disabled={isSubmitting}
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? "message-error" : undefined}
+            className="border-border-strong bg-surface min-h-40 rounded-md"
+            {...register("message")}
+          />
+          <FieldError id="message-error" message={errors.message?.message} />
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-auto -left-[10000px] h-px w-px overflow-hidden"
+        >
+          <Label htmlFor="website">Website</Label>
+          <Input
+            id="website"
+            tabIndex={-1}
+            autoComplete="off"
+            {...register("website")}
+          />
+        </div>
+
+        <Button type="submit" disabled={isSubmitting} aria-busy={isSubmitting}>
+          {isSubmitting ? "Sending…" : "Send message"}
+        </Button>
+
+        <div aria-live="polite" aria-atomic="true">
+          {submission.kind === "success" ? (
+            <p role="status" className="text-signal-strong text-sm">
+              {submission.message}
+            </p>
+          ) : null}
+          {submission.kind === "error" ? (
+            <p role="alert" className="text-destructive text-sm">
+              {submission.message}
+            </p>
+          ) : null}
+        </div>
+      </form>
+
+      {to ? (
+        <p className="text-muted-foreground mt-5 text-sm">
+          Prefer email? Contact me at{" "}
+          <a
+            href={`mailto:${to}`}
+            className="text-foreground decoration-border-strong hover:text-signal underline transition-colors"
+          >
+            {to}
+          </a>
+          .
         </p>
       ) : null}
     </div>
   );
 }
 
-function StatusMessage({
-  status,
-  hasEmail,
-}: {
-  status: "idle" | "ready" | "copied";
-  hasEmail: boolean;
-}) {
-  if (status === "idle") {
-    return null;
-  }
+type TextFieldProps = {
+  id: string;
+  label: string;
+  type?: string;
+  autoComplete?: string;
+  error?: string;
+  disabled?: boolean;
+  registration: UseFormRegisterReturn;
+};
 
-  if (status === "copied") {
-    return (
-      <p role="status" className="text-sm text-forest">
-        Message copied. Paste it into GitHub or LinkedIn if your mail app did
-        not open.
-      </p>
-    );
-  }
-
+function TextField({
+  id,
+  label,
+  type = "text",
+  autoComplete,
+  error,
+  disabled,
+  registration,
+}: TextFieldProps) {
   return (
-    <p role="status" className="text-sm text-forest">
-      {hasEmail
-        ? "Your mail app should open with the draft. If it does not, use the social links."
-        : "No public email is configured yet. Use GitHub or LinkedIn, or set NEXT_PUBLIC_CONTACT_EMAIL."}
-    </p>
+    <div className="space-y-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Input
+        id={id}
+        type={type}
+        autoComplete={autoComplete}
+        disabled={disabled}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className="border-border-strong bg-surface rounded-md"
+        {...registration}
+      />
+      <FieldError id={`${id}-error`} message={error} />
+    </div>
   );
+}
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  return message ? (
+    <p id={id} role="alert" className="text-destructive text-sm">
+      {message}
+    </p>
+  ) : null;
 }

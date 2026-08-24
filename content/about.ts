@@ -1,11 +1,12 @@
 import type { AboutContent } from "@/types";
+import { skills } from "@/content/skills";
 
 export const about: AboutContent = {
   title: "About",
   intro: [
     "I am a frontend developer based in Nigeria. I care about interfaces that stay clear under real use: small screens, slow connections, and the next person who has to change the code.",
-    "Most of my public work is self-directed. I use those studies to practice layout, component structure, and state in React. This site is the first piece I am treating as a production surface rather than a sketch.",
-    "I am not listing titles I do not hold, clients I have not shipped for, or numbers I cannot stand behind. If a project is a study, it is labeled as one.",
+    "My public work combines self-directed product studies with production-minded engineering. I use each project to sharpen layout, component architecture, state management, accessibility, and the details that make an interface feel dependable.",
+    "I value direct communication, readable code, and honest case studies that make the work—and my role in it—easy to understand.",
   ],
   approach: [
     {
@@ -25,19 +26,6 @@ export const about: AboutContent = {
       body: "Animation is for orientation: revealing a section, confirming a state, or keeping a relationship between two elements. It should respect reduced-motion preferences.",
     },
   ],
-  skills: [
-    {
-      heading: "Interface",
-      items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
-    },
-    {
-      heading: "State and style",
-      items: ["Redux Toolkit", "Tailwind CSS", "Framer Motion"],
-    },
-    {
-      heading: "Practice",
-      items: ["Vite", "Git", "ESLint", "Prettier", "Vitest", "Playwright"],
-    },
-  ],
+  skills,
   now: "Building this portfolio, revising older React studies, and getting more comfortable with typed Next.js application structure.",
 };

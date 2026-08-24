@@ -1,28 +1,28 @@
-import { RevealGroup } from "@/components/motion/reveal";
+import { Container } from "@/components/container";
 import { PageIntro } from "@/components/sections/page-intro";
 import { WorkIndex } from "@/components/work/work-index";
 import { createMetadata } from "@/lib/metadata";
 import { getProjects } from "@/lib/projects";
 
 export const metadata = createMetadata({
-  title: "Work",
+  title: "Projects",
   description:
     "Selected frontend work and interface studies by Tosin Joseph. Studies are labeled as studies.",
-  path: "/work",
+  path: "/projects",
 });
 
-export default function WorkPage() {
+export default function ProjectsPage() {
   const projects = getProjects();
 
   return (
-    <>
-      <PageIntro code="02" kicker="Work" title="Register">
-        Public work only. Production pieces and personal studies share a
-        register; the status label tells you which is which.
+    <Container className="py-section">
+      <PageIntro code="02" kicker="Projects" title="Selected work">
+        Product studies and production-minded builds focused on responsive
+        layout, accessible interaction, and maintainable frontend code.
       </PageIntro>
-      <RevealGroup className="mt-12">
+      <div className="mt-12">
         <WorkIndex projects={projects} />
-      </RevealGroup>
-    </>
+      </div>
+    </Container>
   );
 }

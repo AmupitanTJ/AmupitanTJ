@@ -1,5 +1,7 @@
 import { ContactForm } from "@/components/contact/contact-form";
+import { Container } from "@/components/container";
 import { PageIntro } from "@/components/sections/page-intro";
+import { SocialLink } from "@/components/social-link";
 import { site } from "@/content/site";
 import { createMetadata } from "@/lib/metadata";
 
@@ -12,55 +14,50 @@ export const metadata = createMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="grid gap-12 lg:grid-cols-[1fr_24rem]">
-      <div>
-        <PageIntro code="04" kicker="Contact" title="The desk">
-          Use the form if you want to write about frontend work. If no email is
-          configured, the form still validates and prepares a message you can
-          send through GitHub or LinkedIn.
-        </PageIntro>
-        <div className="mt-10 max-w-lg">
-          <ContactForm to={site.email} />
+    <Container className="py-section">
+      <div className="grid gap-12 lg:grid-cols-[1fr_20rem]">
+        <div>
+          <PageIntro code="06" kicker="Contact" title="The desk">
+            Send a note about frontend work, a product interface, or a React
+            role. I will reply to the email address you provide.
+          </PageIntro>
+          <div className="mt-10 max-w-lg">
+            <ContactForm to={site.email} />
+          </div>
         </div>
+        <aside className="border-border bg-card shadow-card h-fit space-y-8 rounded-lg border p-6">
+          <div>
+            <p className="meta text-muted-foreground">Direct</p>
+            <ul className="mt-4 space-y-3">
+              {site.social.map((item) => (
+                <li key={item.href}>
+                  <SocialLink
+                    href={item.href}
+                    label={item.label}
+                    handle={item.handle}
+                  />
+                </li>
+              ))}
+              {site.email ? (
+                <li>
+                  <SocialLink
+                    href={`mailto:${site.email}`}
+                    label={site.email}
+                  />
+                </li>
+              ) : (
+                <li className="text-muted-foreground text-sm leading-6">
+                  Prefer social? Send a message through GitHub or LinkedIn.
+                </li>
+              )}
+            </ul>
+          </div>
+          <div>
+            <p className="meta text-muted-foreground">Location</p>
+            <p className="text-foreground mt-2 text-sm">{site.location}</p>
+          </div>
+        </aside>
       </div>
-      <aside className="border-rule h-fit space-y-6 border-t pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
-        <div>
-          <p className="folio">Direct</p>
-          <ul className="mt-3 space-y-2 text-sm">
-            {site.social.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-mark"
-                >
-                  {item.label} / {item.handle}
-                </a>
-              </li>
-            ))}
-            {site.email ? (
-              <li>
-                <a href={`mailto:${site.email}`} className="hover:text-mark">
-                  {site.email}
-                </a>
-              </li>
-            ) : (
-              <li className="text-ink-soft">
-                Email is not published yet. Set{" "}
-                <code className="font-mono text-xs">
-                  NEXT_PUBLIC_CONTACT_EMAIL
-                </code>{" "}
-                when you want the form to open a mail draft.
-              </li>
-            )}
-          </ul>
-        </div>
-        <div>
-          <p className="folio">Location</p>
-          <p className="mt-2 text-sm">{site.location}</p>
-        </div>
-      </aside>
-    </div>
+    </Container>
   );
 }

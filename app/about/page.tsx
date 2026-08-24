@@ -1,7 +1,12 @@
-import { DrawRule, Reveal } from "@/components/motion/reveal";
+import { Container } from "@/components/container";
+import { SectionHeading } from "@/components/section-heading";
+import { SectionReveal } from "@/components/section-reveal";
 import { PageIntro } from "@/components/sections/page-intro";
+import { Tag } from "@/components/tag";
+import { TimelineItem } from "@/components/timeline-item";
 import { about } from "@/content/about";
 import { createMetadata } from "@/lib/metadata";
+import { padIndex } from "@/lib/utils";
 
 export const metadata = createMetadata({
   title: "About",
@@ -12,82 +17,68 @@ export const metadata = createMetadata({
 
 export default function AboutPage() {
   return (
-    <>
-      <PageIntro code="03" kicker="About" title={about.title}>
+    <Container className="py-section">
+      <PageIntro code="05" kicker="About" title={about.title}>
         {about.intro[0]}
       </PageIntro>
 
-      <div className="mt-10 max-w-2xl space-y-5 text-base leading-7 text-ink-soft">
+      <div className="text-muted-foreground mt-10 max-w-2xl space-y-5 text-base leading-7">
         {about.intro.slice(1).map((paragraph) => (
-          <Reveal key={paragraph}>
+          <SectionReveal key={paragraph}>
             <p>{paragraph}</p>
-          </Reveal>
+          </SectionReveal>
         ))}
       </div>
 
-      <DrawRule className="mt-16" />
-
-      <section className="mt-10" aria-labelledby="approach-title">
-        <Reveal>
-          <p className="folio">Approach</p>
-          <h2
+      <section className="mt-20" aria-labelledby="approach-title">
+        <SectionReveal>
+          <SectionHeading
+            eyebrow="Approach"
+            title="How the work is made"
             id="approach-title"
-            className="font-display mt-3 text-4xl tracking-tight"
-          >
-            How the work is made
-          </h2>
-        </Reveal>
-        <ol className="mt-10 grid gap-10 md:grid-cols-2">
+          />
+        </SectionReveal>
+        <ol className="mt-10 space-y-10">
           {about.approach.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.05}>
-              <li>
-                <p className="folio text-mark">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="font-display mt-2 text-2xl tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-ink-soft">
+            <li key={item.title}>
+              <SectionReveal delay={index * 0.04}>
+                <TimelineItem marker={padIndex(index)} title={item.title}>
                   {item.body}
-                </p>
-              </li>
-            </Reveal>
+                </TimelineItem>
+              </SectionReveal>
+            </li>
           ))}
         </ol>
       </section>
 
-      <DrawRule className="mt-16" />
-
-      <section className="mt-10" aria-labelledby="tools-title">
-        <Reveal>
-          <p className="folio">Tools</p>
-          <h2
+      <section className="mt-20" aria-labelledby="tools-title">
+        <SectionReveal>
+          <SectionHeading
+            eyebrow="Tools"
+            title="In regular use"
             id="tools-title"
-            className="font-display mt-3 text-4xl tracking-tight"
-          >
-            In regular use
-          </h2>
-        </Reveal>
+          />
+        </SectionReveal>
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
           {about.skills.map((group) => (
-            <Reveal key={group.heading}>
-              <h3 className="folio">{group.heading}</h3>
-              <ul className="mt-3 space-y-1 text-sm">
+            <SectionReveal key={group.heading}>
+              <h3 className="meta text-muted-foreground">{group.heading}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <Tag>{item}</Tag>
+                  </li>
                 ))}
               </ul>
-            </Reveal>
+            </SectionReveal>
           ))}
         </div>
       </section>
 
-      <DrawRule className="mt-16" />
-
-      <Reveal className="mt-10 max-w-xl">
-        <p className="folio">Now</p>
-        <p className="font-display mt-3 text-2xl leading-snug">{about.now}</p>
-      </Reveal>
-    </>
+      <SectionReveal className="mt-20 max-w-xl">
+        <p className="meta text-muted-foreground">Now</p>
+        <p className="mt-3 text-2xl leading-snug tracking-tight">{about.now}</p>
+      </SectionReveal>
+    </Container>
   );
 }

@@ -1,5 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { cn, padIndex, siteUrl } from "@/lib/utils";
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
 
 describe("cn", () => {
   it("merges conflicting tailwind classes", () => {
@@ -12,11 +16,24 @@ describe("padIndex", () => {
     expect(padIndex(0)).toBe("01");
     expect(padIndex(9)).toBe("10");
   });
+
+  it("supports custom padding widths", () => {
+    expect(padIndex(6, 3)).toBe("007");
+  });
 });
 
 describe("siteUrl", () => {
   it("joins the site origin with a path", () => {
-    expect(siteUrl("/work")).toMatch(/\/work$/);
+    expect(siteUrl("/projects")).toMatch(/\/projects$/);
     expect(siteUrl("/")).not.toMatch(/\/$/);
+  });
+
+  it("normalizes trailing slashes and relative paths", () => {
+    vi.stubEnv("SITE_URL", "https://portfolio.example/");
+
+    expect(siteUrl()).toBe("https://portfolio.example");
+    expect(siteUrl("projects/registration")).toBe(
+      "https://portfolio.example/projects/registration",
+    );
   });
 });

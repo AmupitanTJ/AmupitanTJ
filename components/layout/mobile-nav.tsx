@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import { Button } from "@/components/button";
+import { NavLink } from "@/components/layout/nav-link";
 import { site } from "@/content/site";
-import { Button } from "@/components/ui/button";
+import { isNavActive } from "@/lib/nav";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -16,51 +20,67 @@ import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="outline"
+          variant="secondary"
           size="icon"
-          className="border-rule h-10 w-10 rounded-none bg-transparent lg:hidden"
-          aria-label="Open menu"
+          className="md:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-haspopup="dialog"
         >
-          <Menu className="size-4" />
+          <Menu />
         </Button>
       </SheetTrigger>
       <SheetContent
-        side="left"
-        className="w-[min(100%,20rem)] border-rule bg-paper px-6"
+        side="right"
+        className="border-border bg-background w-[min(100%,20rem)] px-6"
       >
         <SheetHeader className="px-0 text-left">
-          <SheetTitle className="font-display text-2xl font-medium">
-            {site.name}
+          <SheetTitle className="text-lg font-medium">
+            {site.shortName}.
           </SheetTitle>
-          <p className="folio">{site.role}</p>
+          <p className="meta text-muted-foreground">{site.name}</p>
         </SheetHeader>
-        <nav aria-label="Mobile" className="mt-8 flex flex-col gap-1">
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile"
+          className="mt-8 flex flex-col gap-1"
+        >
           {site.nav.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+            const active = isNavActive(item.href, pathname, "");
 
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex items-baseline justify-between border-b border-rule/70 py-3 text-lg",
-                  active ? "text-mark" : "text-ink hover:text-mark",
-                )}
-              >
-                <span>{item.label}</span>
-                <span className="folio">{item.code}</span>
-              </Link>
+              <SheetClose asChild key={item.href}>
+                <NavLink
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "border-border focus-visible:outline-signal flex items-baseline justify-between border-b py-3 text-base focus-visible:outline-2 focus-visible:outline-offset-3",
+                    active
+                      ? "text-signal"
+                      : "text-foreground hover:text-signal",
+                  )}
+                >
+                  <span>{item.label}</span>
+                  <span className="meta text-muted-foreground">
+                    {item.code}
+                  </span>
+                </NavLink>
+              </SheetClose>
             );
           })}
         </nav>
+        <Button asChild className="mt-8 w-full">
+          <Link href={site.resumeHref} onClick={() => setOpen(false)}>
+            Resume
+          </Link>
+        </Button>
       </SheetContent>
     </Sheet>
   );

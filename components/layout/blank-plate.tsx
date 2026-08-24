@@ -1,24 +1,25 @@
 import Link from "next/link";
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { SectionHeading } from "@/components/section-heading";
 
 export function BlankPlate() {
   return (
-    <div className="max-w-xl py-10">
-      <p className="folio">404 / Off register</p>
-      <h1 className="font-display mt-4 text-6xl tracking-tight">
-        This plate is blank.
-      </h1>
-      <p className="mt-5 text-base leading-7 text-ink-soft">
-        That address is not part of this site. The work register and the index
-        are still here.
-      </p>
-      <div className="mt-8 flex gap-6 text-sm">
-        <Link href="/" className="hover:text-mark">
-          Index
-        </Link>
-        <Link href="/work" className="hover:text-mark">
-          Work
-        </Link>
+    <Container className="py-section">
+      <SectionHeading
+        as="h1"
+        eyebrow="404"
+        title="This plate is blank."
+        description="That address is not part of this site. The project index and the home page are still here."
+      />
+      <div className="mt-8 flex gap-3">
+        <Button asChild>
+          <Link href="/">Index</Link>
+        </Button>
+        <Button asChild variant="secondary">
+          <Link href="/projects">Projects</Link>
+        </Button>
       </div>
-    </div>
+    </Container>
   );
 }

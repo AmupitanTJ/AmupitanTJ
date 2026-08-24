@@ -1,16 +1,21 @@
 export type {
   AboutContent,
   ApproachItem,
+  Experience,
+  HomeContent,
+  HomeLink,
+  MediaAsset,
   NavItem,
+  Note,
   Project,
-  ProjectLink,
-  ProjectSection,
+  ProjectStatus,
   SiteContent,
+  SiteMetadata,
   SkillGroup,
   SocialLink,
 } from "./content";
 
-export type ContactField = "name" | "email" | "message";
+export type ContactField = "name" | "email" | "subject" | "message";
 
 export type ContactPayload = Record<ContactField, string>;
 

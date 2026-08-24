@@ -8,14 +8,20 @@ type PageMeta = {
   path?: string;
 };
 
+const shareImage = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — ${site.role}`,
+};
+
 export function createMetadata({
   title,
   description,
   path = "/",
 }: PageMeta): Metadata {
   const url = siteUrl(path);
-  const fullTitle =
-    title === site.name ? site.name : `${title} — ${site.name}`;
+  const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`;
 
   return {
     title,
@@ -26,13 +32,15 @@ export function createMetadata({
       description,
       url,
       siteName: site.name,
-      locale: "en_GB",
+      locale: site.locale,
       type: "website",
+      images: [shareImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [shareImage.url],
     },
   };
 }

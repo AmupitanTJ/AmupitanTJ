@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { Reveal } from "@/components/motion/reveal";
+import { SectionHeading } from "@/components/section-heading";
+import { SectionReveal } from "@/components/section-reveal";
 import { cn } from "@/lib/utils";
 
 type PageIntroProps = {
@@ -18,18 +19,13 @@ export function PageIntro({
   className,
 }: PageIntroProps) {
   return (
-    <Reveal className={cn("max-w-3xl", className)}>
-      <p className="folio">
-        {code} / {kicker}
-      </p>
-      <h1 className="font-display mt-4 text-5xl leading-[0.92] font-medium tracking-tight text-ink sm:text-6xl md:text-7xl">
-        {title}
-      </h1>
-      {children ? (
-        <div className="mt-6 max-w-xl text-base leading-7 text-ink-soft sm:text-lg">
-          {children}
-        </div>
-      ) : null}
-    </Reveal>
+    <SectionReveal className={cn(className)}>
+      <SectionHeading
+        as="h1"
+        eyebrow={`${code} / ${kicker}`}
+        title={title}
+        description={children}
+      />
+    </SectionReveal>
   );
 }

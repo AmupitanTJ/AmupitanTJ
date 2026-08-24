@@ -1,33 +1,37 @@
+import { Container } from "@/components/container";
+import { SocialLink } from "@/components/social-link";
 import { site } from "@/content/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-rule mt-auto border-t px-5 py-6 md:px-10 lg:px-16">
-      <div className="flex flex-col gap-4 text-sm text-ink-soft sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="font-display text-lg text-ink">{site.name}</p>
-          <p className="folio mt-1">
-            {site.role} — {site.location}
+    <footer className="border-border mt-auto border-t">
+      <Container className="flex flex-col gap-6 py-8 sm:flex-row sm:items-end sm:justify-between">
+        <div className="min-w-0">
+          <p className="text-foreground text-sm">
+            © {year} {site.name}
+          </p>
+          <p className="meta text-muted-foreground mt-2">
+            Built with{" "}
+            <a
+              href="https://nextjs.org"
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground duration-base hover:text-signal focus-visible:outline-signal transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
+            >
+              Next.js
+            </a>
           </p>
         </div>
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           {site.social.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-mark"
-              >
-                {item.label}
-              </a>
+              <SocialLink href={item.href} label={item.label} />
             </li>
           ))}
         </ul>
-        <p className="folio">© {year}</p>
-      </div>
+      </Container>
     </footer>
   );
 }
