@@ -26,13 +26,13 @@ export const site: SiteContent = {
   social: [
     {
       label: "GitHub",
-      href: "https://github.com/Tosinjoseph",
-      handle: "Tosinjoseph",
+      href: "https://github.com/AmupitanTJ/",
+      handle: "AmupitanTJ",
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/tosinjoseph",
-      handle: "tosinjoseph",
+      href: "https://www.linkedin.com/in/tosin-joseph-amupitan-051814260/",
+      handle: "tosin-joseph-amupitan",
     },
   ],
 };

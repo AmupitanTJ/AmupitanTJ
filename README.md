@@ -1,6 +1,6 @@
 # Tosin Joseph — Portfolio
 
-Personal frontend developer site for [Tosin Joseph](https://github.com/Tosinjoseph). Built as a typed Next.js application with content kept separate from the interface.
+Personal frontend developer site for [Tosin Joseph](https://github.com/AmupitanTJ/). Built as a typed Next.js application with content kept separate from the interface.
 
 The visual system is a dark, minimal developer portfolio: deep navy, off-white type, one electric-blue accent, Geist for text, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
 
