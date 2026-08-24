@@ -12,8 +12,8 @@ export const site: SiteContent = {
   focus:
     "Currently tightening this site into a durable public record of selected frontend work, and practicing production patterns in Next.js.",
   url:
-    process.env.SITE_URL ??
-    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.SITE_URL?.trim() ||
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
     "http://localhost:3000",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
   resumeHref: "/resume",

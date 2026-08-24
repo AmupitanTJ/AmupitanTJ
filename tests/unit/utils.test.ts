@@ -36,4 +36,11 @@ describe("siteUrl", () => {
       "https://portfolio.example/projects/registration",
     );
   });
+
+  it("ignores blank deployment environment values", () => {
+    vi.stubEnv("SITE_URL", "");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "");
+
+    expect(siteUrl()).toBe("http://localhost:3000");
+  });
 });
