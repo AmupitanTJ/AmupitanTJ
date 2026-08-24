@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const inProgress = project.status === "in-progress";
 
   return (
-    <article className="group border-border-strong bg-card shadow-card duration-base hover:border-signal flex h-full min-w-0 flex-col overflow-hidden rounded-lg border transition-[border-color,transform,box-shadow] ease-out hover:shadow-[0_1px_0_rgb(255_255_255/0.04),0_16px_36px_rgb(0_0_0/0.28)] motion-safe:hover:-translate-y-0.5">
+    <article className="group border-foreground bg-card shadow-card duration-base flex h-full min-w-0 flex-col overflow-hidden rounded-lg border transition-[transform,box-shadow] ease-out hover:shadow-[8px_8px_0_rgb(10_10_10/0.12)] motion-safe:hover:-translate-y-1">
       <ProjectCover title={project.title} image={project.coverImage} />
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <h3 className="mt-3 text-xl tracking-tight sm:text-2xl">
           <Link
             href={`/projects/${project.slug}`}
-            className="text-foreground duration-base hover:text-signal focus-visible:outline-signal transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
+            className="text-foreground duration-base decoration-foreground hover:underline focus-visible:outline-signal transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
           >
             {project.title}
           </Link>

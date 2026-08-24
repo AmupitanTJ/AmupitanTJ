@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Instrument_Sans,
+  JetBrains_Mono,
+} from "next/font/google";
 import { PrivacyAnalytics } from "@/components/analytics/privacy-analytics";
 import { WebsiteJsonLd } from "@/components/layout/json-ld";
 import { SiteFrame } from "@/components/layout/site-frame";
@@ -7,8 +11,13 @@ import { site } from "@/content/site";
 import { siteUrl } from "@/lib/utils";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
 });
 
@@ -59,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${instrumentSans.variable} ${cormorant.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="bg-background text-foreground min-h-full font-sans">
         <WebsiteJsonLd />

@@ -12,25 +12,25 @@
  * - Subtle borders `#2C3A55` are for non-interactive rules only.
  */
 export const color = {
-  navy: "#0B1220",
-  surface: "#121A2C",
-  surfaceRaised: "#182236",
-  foreground: "#EDF1F7",
-  muted: "#A7B2C6",
-  accent: "#4EA2E0",
-  accentStrong: "#63B0E6",
-  accentForeground: "#0B1220",
-  border: "#2C3A55",
-  borderStrong: "#7B8BA6",
-  danger: "#E07A7A",
+  navy: "#FFFFFF",
+  surface: "#FFFFFF",
+  surfaceRaised: "#F3F3EF",
+  foreground: "#0A0A0A",
+  muted: "#5C5C57",
+  accent: "#0A0A0A",
+  accentStrong: "#2A2A2A",
+  accentForeground: "#FFFFFF",
+  border: "#DEDED8",
+  borderStrong: "#8A8A84",
+  danger: "#1F1F1F",
 } as const;
 
 export const type = {
-  sans: "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
+  sans: "var(--font-instrument), ui-sans-serif, system-ui, sans-serif",
   mono: "var(--font-jetbrains), ui-monospace, monospace",
-  displayWeight: "500",
-  displayTracking: "-0.035em",
-  displayLeading: "0.96",
+  displayWeight: "600",
+  displayTracking: "-0.045em",
+  displayLeading: "0.9",
   metaSize: "0.75rem",
   metaTracking: "0.04em",
   metaLeading: "1.4",
@@ -49,7 +49,7 @@ export const space = {
 } as const;
 
 export const shadow = {
-  card: "0 1px 0 rgb(255 255 255 / 0.03), 0 10px 28px rgb(0 0 0 / 0.22)",
+  card: "0 12px 40px rgb(0 0 0 / 0.07)",
 } as const;
 
 export const duration = {

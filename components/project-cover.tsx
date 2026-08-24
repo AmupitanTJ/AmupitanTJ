@@ -23,10 +23,10 @@ export function ProjectCover({ title, image, className }: ProjectCoverProps) {
           fill
           unoptimized={image.src.endsWith(".svg")}
           sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="motion-safe:duration-slow object-cover motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+          className="motion-safe:duration-slow object-cover grayscale motion-safe:transition-[transform,filter] motion-safe:ease-out motion-safe:group-hover:scale-[1.035] motion-safe:group-hover:contrast-125"
         />
       ) : (
-        <div className="absolute inset-0 flex items-end bg-[linear-gradient(135deg,rgba(78,162,224,0.12),transparent_55%)] p-4 sm:p-5">
+        <div className="absolute inset-0 flex items-end bg-[linear-gradient(135deg,rgba(10,10,10,0.08),transparent_55%)] p-4 sm:p-5">
           <p className="display text-foreground/80 max-w-[12ch] text-3xl sm:text-4xl">
             {title}
           </p>

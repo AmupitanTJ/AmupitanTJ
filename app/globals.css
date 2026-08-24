@@ -2,16 +2,16 @@
 @import "tw-animate-css";
 
 :root {
-  --navy: #0b1220;
-  --surface: #121a2c;
-  --surface-raised: #182236;
-  --off-white: #edf1f7;
-  --muted-text: #a7b2c6;
-  --signal: #4ea2e0;
-  --signal-strong: #63b0e6;
-  --rule: #2c3a55;
-  --rule-strong: #7b8ba6;
-  --danger: #e07a7a;
+  --navy: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #f3f3ef;
+  --off-white: #0a0a0a;
+  --muted-text: #5c5c57;
+  --signal: #0a0a0a;
+  --signal-strong: #2a2a2a;
+  --rule: #deded8;
+  --rule-strong: #8a8a84;
+  --danger: #1f1f1f;
   --radius: 0.75rem;
   --gutter: 1.5rem;
   --section: 6rem;
@@ -20,7 +20,7 @@
   --duration-base: 220ms;
   --duration-slow: 400ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.03), 0 10px 28px rgb(0 0 0 / 0.22);
+  --shadow-card: 0 12px 40px rgb(0 0 0 / 0.07);
   --background: var(--navy);
   --foreground: var(--off-white);
   --card: var(--surface);
@@ -66,9 +66,9 @@
   --color-signal: var(--signal);
   --color-signal-strong: var(--signal-strong);
   --color-border-strong: var(--rule-strong);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-instrument);
   --font-mono: var(--font-jetbrains);
-  --font-display: var(--font-geist-sans);
+  --font-display: var(--font-cormorant);
   --font-meta: var(--font-jetbrains);
   --text-meta: 0.75rem;
   --text-meta--line-height: 1.4;
@@ -95,6 +95,7 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
   }
 
   body {
@@ -103,7 +104,7 @@
 
   ::selection {
     background: var(--signal);
-    color: var(--navy);
+    color: #ffffff;
   }
 
   :focus-visible {
@@ -124,10 +125,10 @@
 }
 
 @utility display {
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.96;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
 }
 
 @media (prefers-reduced-motion: reduce) {
