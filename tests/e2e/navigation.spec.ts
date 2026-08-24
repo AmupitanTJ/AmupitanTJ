@@ -8,9 +8,6 @@ test("index presents Tosin Joseph and primary sections", async ({ page }) => {
   );
   await expect(page.getByRole("link", { name: "TROVE Calc" })).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "GSAP Text Animation" }),
-  ).toBeVisible();
-  await expect(
     page.getByRole("heading", {
       name: "Have a product, interface, or frontend role in mind?",
     }),

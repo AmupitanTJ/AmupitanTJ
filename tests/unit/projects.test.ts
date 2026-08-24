@@ -42,7 +42,6 @@ describe("project register", () => {
     expect(featured.every((project) => project.featured)).toBe(true);
     expect(featured.map((project) => project.slug)).toEqual([
       "trove-calculator",
-      "gsap-text-animation",
     ]);
   });
 

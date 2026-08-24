@@ -33,36 +33,6 @@ export const projects: Project[] = [
     nextSteps: [],
   },
   {
-    slug: "gsap-text-animation",
-    title: "GSAP Text Animation",
-    shortDescription:
-      "A focused typography animation study using GSAP and SplitText.",
-    longDescription:
-      "A small frontend motion study that reveals a headline character by character and supporting copy word by word. The public demo includes a reset control for replaying the sequence.",
-    year: "2026",
-    role: "Frontend motion study",
-    status: "study",
-    featured: true,
-    stack: ["HTML", "CSS", "JavaScript", "GSAP", "SplitText"],
-    coverImage: null,
-    gallery: [],
-    liveUrl: "https://gsaptextanimation.vercel.app",
-    githubUrl: "https://github.com/AmupitanTJ/GSAPTEXTANIMATION",
-    challenge:
-      "Explore how staggered character and word animation can introduce a simple page without adding a large interface or complex application state.",
-    solution:
-      "GSAP timelines and SplitText animate headline characters with vertical movement, rotation, opacity, and a colour transition. Supporting words enter with movement and blur, while a reset button reloads the sequence.",
-    keyDecisions: [
-      "Keep the exercise to one HTML page and one animation timeline.",
-      "Use responsive type sizes so the headline remains readable on smaller screens.",
-    ],
-    outcomes: [
-      "A public animation demo and source repository.",
-      "A compact study of stagger, transform origin, easing, and text splitting.",
-    ],
-    nextSteps: [],
-  },
-  {
     slug: "wdd130-coursework",
     title: "WDD 130 Coursework",
     shortDescription:
