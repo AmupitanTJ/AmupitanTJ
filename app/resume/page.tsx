@@ -9,9 +9,9 @@ import { createMetadata } from "@/lib/metadata";
 import { getExperience } from "@/lib/experience";
 
 export const metadata = createMetadata({
-  title: "Resume",
+  title: "Profile",
   description:
-    "Current frontend practice, technical strengths, and tools used by Tosin Joseph.",
+    "Current project work and technical skills used by Tosin Joseph Amupitan.",
   path: "/resume",
 });
 
@@ -20,16 +20,16 @@ export default function ResumePage() {
 
   return (
     <Container className="py-section">
-      <PageIntro code="03" kicker="Resume" title="Record">
-        A concise view of my current frontend practice, technical strengths, and
-        the tools I use to build dependable interfaces.
+      <PageIntro code="04" kicker="Profile" title="Current work and skills">
+        A direct view of the project I am building now and the technologies I
+        have used across my public work.
       </PageIntro>
 
       <section className="mt-16" aria-labelledby="experience-title">
         <SectionReveal>
           <SectionHeading
-            eyebrow="Experience"
-            title="Current practice"
+            eyebrow="Project work"
+            title="What I am building now"
             id="experience-title"
           />
         </SectionReveal>

@@ -78,7 +78,7 @@ export function MobileNav() {
         </nav>
         <Button asChild className="mt-8 w-full">
           <Link href={site.resumeHref} onClick={() => setOpen(false)}>
-            Resume
+            Profile
           </Link>
         </Button>
       </SheetContent>

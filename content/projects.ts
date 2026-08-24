@@ -2,13 +2,54 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "vantraclip",
+    title: "VantraClip",
+    shortDescription:
+      "A full-stack platform for turning long videos into captioned, social-ready clips.",
+    longDescription:
+      "VantraClip is an AI-assisted video clipping platform that processes long videos into shorter clips with highlight detection, captions, face-aware reframing, branding, and multiple export formats.",
+    year: "2026",
+    role: "Full-stack development",
+    status: "in-progress",
+    featured: true,
+    stack: [
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "FFmpeg",
+      "OpenAI API",
+    ],
+    coverImage: {
+      src: "/projects/vantraclip-logo.png",
+      alt: "VantraClip logo in black and purple on a white background",
+    },
+    gallery: [],
+    liveUrl: "https://vantraclip.com/",
+    githubUrl: "https://github.com/AmupitanTJ/Vantraclip",
+    challenge:
+      "Coordinate a long-running media workflow that can accept a source video, find useful moments, create readable captions, reframe footage, and export clips without blocking the main web application.",
+    solution:
+      "The project combines a React and Vite client with an Express API, PostgreSQL, S3-compatible storage, and FFmpeg processing. OpenAI supports transcription and highlight selection, while TensorFlow.js and BlazeFace support face-aware framing. API and worker roles can run separately while sharing the same database and storage.",
+    keyDecisions: [
+      "Keep API and processing-worker roles separable for long-running video jobs.",
+      "Snap clip boundaries to complete spoken thoughts instead of forcing a fixed number of clips.",
+      "Use signed browser uploads so storage credentials remain on the server.",
+    ],
+    outcomes: [
+      "A public full-stack codebase and a live web application at vantraclip.com.",
+      "A workflow covering projects, authentication, job controls, captions, branding, and multiple aspect ratios.",
+    ],
+    nextSteps: [],
+  },
+  {
     slug: "trove-calculator",
     title: "TROVE Calc",
     shortDescription:
       "An installable standard and scientific calculator built with vanilla web technologies.",
     longDescription:
       "TROVE Calc is a standard and scientific calculator Progressive Web App built with HTML, CSS, and vanilla JavaScript. It includes calculation history, memory controls, themes, keyboard support, and offline use.",
-    year: "2025",
+    year: "2026",
     role: "Frontend development",
     status: "production",
     featured: true,

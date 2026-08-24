@@ -41,6 +41,7 @@ describe("project register", () => {
     const featured = getFeaturedProjects();
     expect(featured.every((project) => project.featured)).toBe(true);
     expect(featured.map((project) => project.slug)).toEqual([
+      "vantraclip",
       "trove-calculator",
     ]);
   });
@@ -50,12 +51,13 @@ describe("project register", () => {
     expect(first).toBeDefined();
     expect(getProjectBySlug(first!.slug)).toEqual(first);
     expect(getProjectBySlug("not-a-real-plate")).toBeUndefined();
-    expect(getProjectBySlug("vantraclip")).toBeUndefined();
+    expect(getProjectBySlug("vantraclip")?.title).toBe("VantraClip");
   });
 
   it("lists every slug once", () => {
     const slugs = getProjectSlugs();
     expect(new Set(slugs).size).toBe(slugs.length);
+    expect(slugs).toContain("vantraclip");
     expect(slugs).toContain("trove-calculator");
   });
 

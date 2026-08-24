@@ -15,9 +15,9 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
       <SectionReveal>
         <SectionHeading
           eyebrow="Selected work"
-          title="Case studies"
+          title="Projects I have built"
           id="selected-work-title"
-          description="A selection of interface studies and production-minded builds, with each project clearly labelled by status."
+          description="Real projects from my public GitHub repositories, with their current status and my role stated clearly."
         />
       </SectionReveal>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

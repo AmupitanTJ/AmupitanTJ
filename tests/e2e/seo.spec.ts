@@ -1,15 +1,19 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/", title: "Tosin Joseph — Frontend Developer" },
-  { path: "/projects", title: "Projects — Tosin Joseph" },
-  { path: "/about", title: "About — Tosin Joseph" },
-  { path: "/resume", title: "Resume — Tosin Joseph" },
-  { path: "/notes", title: "Notes — Tosin Joseph" },
-  { path: "/contact", title: "Contact — Tosin Joseph" },
+  { path: "/", title: "Tosin Joseph Amupitan — Web Developer" },
+  { path: "/projects", title: "Projects — Tosin Joseph Amupitan" },
+  { path: "/about", title: "About — Tosin Joseph Amupitan" },
+  { path: "/resume", title: "Profile — Tosin Joseph Amupitan" },
+  { path: "/notes", title: "Notes — Tosin Joseph Amupitan" },
+  { path: "/contact", title: "Contact — Tosin Joseph Amupitan" },
+  {
+    path: "/projects/vantraclip",
+    title: "VantraClip — Tosin Joseph Amupitan",
+  },
   {
     path: "/projects/trove-calculator",
-    title: "TROVE Calc — Tosin Joseph",
+    title: "TROVE Calc — Tosin Joseph Amupitan",
   },
 ] as const;
 
@@ -29,7 +33,7 @@ test("every public page has unique canonical and sharing metadata", async ({
     expect(new URL(canonicalHref!).pathname).toBe(entry.path);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
       "content",
-      /Tosin Joseph/,
+      /Tosin Joseph Amupitan/,
     );
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
@@ -68,7 +72,7 @@ test("metadata routes expose sitemap, robots, and manifest", async ({
   const manifest = await request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);
   expect(await manifest.json()).toMatchObject({
-    name: "Tosin Joseph — Frontend Developer",
+    name: "Tosin Joseph Amupitan — Web Developer",
     start_url: "/",
   });
 });

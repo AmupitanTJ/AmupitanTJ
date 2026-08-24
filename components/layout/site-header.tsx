@@ -18,7 +18,7 @@ export function SiteHeader() {
         <PrimaryNav />
         <div className="ml-auto flex min-w-0 items-center gap-2 md:ml-0">
           <Button asChild size="sm">
-            <Link href={site.resumeHref}>Resume</Link>
+            <Link href={site.resumeHref}>Profile</Link>
           </Button>
           <MobileNav />
         </div>

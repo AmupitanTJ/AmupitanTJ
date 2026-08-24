@@ -6,8 +6,7 @@ import { getNotes } from "@/lib/notes";
 
 export const metadata = createMetadata({
   title: "Notes",
-  description:
-    "Short notes on frontend engineering and interface design by Tosin Joseph.",
+  description: "Future development notes from Tosin Joseph Amupitan.",
   path: "/notes",
 });
 
@@ -16,17 +15,17 @@ export default function NotesPage() {
 
   return (
     <Container className="py-section">
-      <PageIntro code="04" kicker="Notes" title="Desk notes">
-        Short observations on frontend engineering, interface design, and the
-        lessons that emerge while building.
+      <PageIntro code="05" kicker="Notes" title="Learning notes">
+        This section is reserved for practical notes from projects I have
+        completed or am actively building.
       </PageIntro>
 
       {published.length === 0 ? (
         <div className="border-border bg-card mt-12 max-w-xl rounded-lg border p-6">
           <p className="text-foreground text-lg">Writing is on the way.</p>
           <p className="text-muted-foreground mt-2 text-sm leading-6">
-            I am preparing practical notes worth returning to. In the meantime,
-            the project case studies show how I approach interface work.
+            I have not published any notes yet. In the meantime, the project
+            pages document the work currently available on my GitHub profile.
           </p>
           <Link
             href="/projects"

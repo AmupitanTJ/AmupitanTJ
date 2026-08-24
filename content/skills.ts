@@ -14,23 +14,24 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    heading: "UI & Motion",
-    items: ["Framer Motion", "GSAP"],
+    heading: "Backend & Data",
+    items: ["Node.js", "Express", "PostgreSQL", "REST APIs"],
   },
   {
-    heading: "Backend Foundations",
-    items: ["Node.js"],
+    heading: "Media & Integrations",
+    items: ["FFmpeg", "OpenAI API", "TensorFlow.js", "S3 Storage"],
   },
   {
     heading: "Tools",
     items: [
       "Git",
       "Vite",
-      "Redux Toolkit",
       "ESLint",
       "Prettier",
       "Vitest",
       "Playwright",
+      "Vercel",
+      "Railway",
     ],
   },
 ];

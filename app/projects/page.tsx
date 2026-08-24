@@ -7,7 +7,7 @@ import { getProjects } from "@/lib/projects";
 export const metadata = createMetadata({
   title: "Projects",
   description:
-    "Selected frontend work and interface studies by Tosin Joseph. Studies are labeled as studies.",
+    "Web development projects by Tosin Joseph Amupitan, including VantraClip, TROVE Calc, and WDD 130 coursework.",
   path: "/projects",
 });
 
@@ -16,9 +16,9 @@ export default function ProjectsPage() {
 
   return (
     <Container className="py-section">
-      <PageIntro code="02" kicker="Projects" title="Selected work">
-        Product studies and production-minded builds focused on responsive
-        layout, accessible interaction, and maintainable frontend code.
+      <PageIntro code="01" kicker="Projects" title="My work">
+        Public projects that show my progress from HTML and CSS foundations to
+        JavaScript applications and full-stack development.
       </PageIntro>
       <div className="mt-12">
         <WorkIndex projects={projects} />

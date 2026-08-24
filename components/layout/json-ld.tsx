@@ -18,11 +18,13 @@ export function PersonJsonLd() {
         url: siteUrl(),
         sameAs: site.social.map((item) => item.href),
         knowsAbout: [
-          "Frontend development",
+          "Web development",
           "React",
           "TypeScript",
-          "Next.js",
-          "Accessible web interfaces",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "FFmpeg",
         ],
       }}
     />

@@ -15,7 +15,7 @@ export function HomeAbout() {
         <SectionReveal>
           <SectionHeading
             eyebrow="About"
-            title="Building interfaces people can use"
+            title="From foundations to full-stack projects"
             id="about-title"
           />
         </SectionReveal>

@@ -1,6 +1,6 @@
-# Tosin Joseph — Portfolio
+# Tosin Joseph Amupitan — Portfolio
 
-Personal frontend developer site for [Tosin Joseph](https://github.com/AmupitanTJ/). Built as a typed Next.js application with content kept separate from the interface.
+Personal web developer site for [Tosin Joseph Amupitan](https://github.com/AmupitanTJ/). Built as a typed Next.js application with content kept separate from the interface.
 
 The visual system is a dark, minimal developer portfolio: deep navy, off-white type, one electric-blue accent, Geist for text, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
 
@@ -37,7 +37,7 @@ Geist is used for body and headings. JetBrains Mono is used for tags, labels, da
 ## Folder structure
 
 ```text
-app/          routes, metadata, generated icons
+app/          routes, metadata, and site icons
 components/   design system, layout, sections, work, contact, shadcn
 content/      the only place everyday copy should change
 lib/          helpers, motion, and design tokens
@@ -198,8 +198,8 @@ Do not start in the React tree. Change the typed modules in `content/`.
 | ----------------------- | ------------------------------------------------- |
 | `content/site.ts`       | Site metadata, navigation, social links           |
 | `content/projects.ts`   | Project records at `/projects/<slug>`             |
-| `content/experience.ts` | Resume roles                                      |
-| `content/skills.ts`     | Tool groups on About and Resume                   |
+| `content/experience.ts` | Current project work                              |
+| `content/skills.ts`     | Tool groups on About and Profile                  |
 | `content/notes.ts`      | Notes index — keep empty until a real note exists |
 | `content/about.ts`      | About paragraphs and approach                     |
 
@@ -243,7 +243,7 @@ Last completed: 24 August 2026.
 - [x] `npm run lint`
 - [x] `npm run typecheck`
 - [x] `npm run format:check`
-- [x] `npm test` — 34 Vitest tests passed
+- [x] `npm test` — 36 Vitest tests passed
 - [x] `npm run test:e2e` — 46 Playwright tests passed across desktop Chromium and the mobile profile
 - [x] `npm run build` — Next.js production build completed successfully
 - [x] Published project content is complete and contains no placeholder or internal `TODO` copy

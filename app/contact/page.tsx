@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Contact",
   description:
-    "Write to Tosin Joseph about frontend work via the contact form, GitHub, or LinkedIn.",
+    "Contact Tosin Joseph Amupitan through the portfolio form, GitHub, or LinkedIn.",
   path: "/contact",
 });
 
@@ -17,9 +17,9 @@ export default function ContactPage() {
     <Container className="py-section">
       <div className="grid gap-12 lg:grid-cols-[1fr_20rem]">
         <div>
-          <PageIntro code="06" kicker="Contact" title="The desk">
-            Send a note about frontend work, a product interface, or a React
-            role. I will reply to the email address you provide.
+          <PageIntro code="03" kicker="Contact" title="Get in touch">
+            Send a message about a project, collaboration, or web development
+            opportunity. I will reply to the email address you provide.
           </PageIntro>
           <div className="mt-10 max-w-lg">
             <ContactForm to={site.email} />

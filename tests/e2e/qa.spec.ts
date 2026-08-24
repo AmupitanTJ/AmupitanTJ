@@ -65,7 +65,7 @@ test("keyboard users can skip navigation and reach primary links", async ({
   await page.keyboard.press("Tab");
   await page.keyboard.press("Tab");
   await expect(
-    page.getByRole("link", { name: /Tosin Joseph home/i }),
+    page.getByRole("link", { name: /Tosin Joseph Amupitan home/i }),
   ).toBeFocused();
   await page.keyboard.press("Tab");
   await expect(

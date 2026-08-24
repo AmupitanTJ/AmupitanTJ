@@ -14,10 +14,10 @@ export function HomeExperience({ roles }: { roles: Experience[] }) {
     >
       <SectionReveal>
         <SectionHeading
-          eyebrow="Experience"
-          title="Current practice"
+          eyebrow="Current project"
+          title="What I am building now"
           id="experience-title"
-          description="How I am applying and strengthening my frontend skills now."
+          description="The project currently stretching my skills across frontend, backend, data, and media processing."
         />
       </SectionReveal>
       <ol className="mt-10 space-y-10">

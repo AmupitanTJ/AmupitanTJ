@@ -22,7 +22,7 @@ export default function OpenGraphImage() {
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <span style={{ fontSize: 20, letterSpacing: 2, color: color.accent }}>
-          TJ
+          TJA
         </span>
         <span style={{ fontSize: 18, color: color.muted }}>
           {site.location}
@@ -32,8 +32,8 @@ export default function OpenGraphImage() {
         <span style={{ fontSize: 88, lineHeight: 0.92, letterSpacing: -3 }}>
           Tosin
         </span>
-        <span style={{ fontSize: 88, lineHeight: 0.92, letterSpacing: -3 }}>
-          Joseph
+        <span style={{ fontSize: 72, lineHeight: 0.92, letterSpacing: -3 }}>
+          Joseph Amupitan
         </span>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>

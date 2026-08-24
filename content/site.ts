@@ -1,16 +1,16 @@
 import type { SiteContent } from "@/types";
 
 export const site: SiteContent = {
-  name: "Tosin Joseph",
-  shortName: "TJ",
-  role: "Frontend Developer",
+  name: "Tosin Joseph Amupitan",
+  shortName: "TJA",
+  role: "Web Developer",
   location: "Nigeria",
-  headline: "Interfaces that hold their shape.",
+  headline: "Learning by building real products.",
   description:
-    "I build responsive, readable user interfaces with React, TypeScript, and Tailwind CSS. The work is practical: clear structure, careful layout, and code that another developer can pick up without a briefing.",
+    "I build web applications across the frontend and backend. My public work includes VantraClip, TROVE Calc, and the projects that document my progress as a developer.",
   locale: "en_GB",
   focus:
-    "Currently tightening this site into a durable public record of selected frontend work, and practicing production patterns in Next.js.",
+    "Currently developing VantraClip, an AI-assisted video clipping platform, while continuing to strengthen my full-stack web development skills.",
   url:
     process.env.SITE_URL?.trim() ||
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
@@ -20,8 +20,7 @@ export const site: SiteContent = {
   nav: [
     { href: "/projects", label: "Projects", code: "01" },
     { href: "/about", label: "About", code: "02" },
-    { href: "/notes", label: "Notes", code: "03" },
-    { href: "/contact", label: "Contact", code: "04" },
+    { href: "/contact", label: "Contact", code: "03" },
   ],
   social: [
     {

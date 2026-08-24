@@ -11,14 +11,14 @@ import { padIndex } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Tosin Joseph is a frontend developer in Nigeria working with React, TypeScript, and Tailwind CSS.",
+    "About Tosin Joseph Amupitan, a web developer in Nigeria building VantraClip and other public web projects.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <Container className="py-section">
-      <PageIntro code="05" kicker="About" title={about.title}>
+      <PageIntro code="02" kicker="About" title={about.title}>
         {about.intro[0]}
       </PageIntro>
 
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <SectionReveal>
           <SectionHeading
             eyebrow="Approach"
-            title="How the work is made"
+            title="How I approach learning and building"
             id="approach-title"
           />
         </SectionReveal>
