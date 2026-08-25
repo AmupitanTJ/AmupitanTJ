@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <h3 className="mt-3 text-xl tracking-tight sm:text-2xl">
           <Link
             href={`/projects/${project.slug}`}
-            className="text-foreground duration-base decoration-foreground hover:underline focus-visible:outline-signal transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
+            className="text-foreground duration-base decoration-foreground focus-visible:outline-signal transition-colors ease-out hover:underline focus-visible:outline-2 focus-visible:outline-offset-3"
           >
             {project.title}
           </Link>

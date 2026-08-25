@@ -44,7 +44,10 @@ export function HomeHero() {
           </p>
         </SectionReveal>
 
-        <SectionReveal delay={0.08} className="relative mx-auto w-full max-w-md lg:mx-0">
+        <SectionReveal
+          delay={0.08}
+          className="relative mx-auto w-full max-w-md lg:mx-0"
+        >
           <div className="border-foreground bg-surface-raised relative aspect-[4/5] overflow-hidden border">
             <Image
               src="/images/tosin-portrait-monochrome.webp"

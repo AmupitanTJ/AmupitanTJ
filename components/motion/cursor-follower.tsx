@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function CursorFollower() {

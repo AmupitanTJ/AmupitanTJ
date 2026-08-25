@@ -14,7 +14,13 @@ export function SiteHeader() {
           href="/"
           className="text-foreground focus-visible:outline-signal flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-3"
         >
-          <Image src="/images/brand-mark.png" alt="" width={30} height={30} priority />
+          <Image
+            src="/images/brand-mark.png"
+            alt=""
+            width={30}
+            height={30}
+            priority
+          />
           <span className="hidden sm:inline">{site.shortName}.</span>
           <span className="sr-only"> {site.name} home</span>
         </Link>

@@ -2,7 +2,7 @@
 
 Personal web developer site for [Tosin Joseph Amupitan](https://github.com/AmupitanTJ/). Built as a typed Next.js application with content kept separate from the interface.
 
-The visual system is a dark, minimal developer portfolio: deep navy, off-white type, one electric-blue accent, Geist for text, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
+The visual system is a monochrome editorial portfolio: white space, black typography, grayscale photography, Instrument Sans for interface copy, Cormorant Garamond for display type, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
 
 ## Visual system
 
@@ -10,19 +10,19 @@ Tokens are defined in `app/globals.css` (`@theme`) and mirrored in `lib/tokens.t
 
 | Token         | Value               | Role                          |
 | ------------- | ------------------- | ----------------------------- |
-| Navy          | `#0B1220`           | Page background               |
-| Surface       | `#121A2C`           | Cards                         |
-| Off-white     | `#EDF1F7`           | Body and headings             |
-| Muted         | `#A7B2C6`           | Supporting copy               |
-| Accent        | `#4EA2E0`           | Links, focus, primary buttons |
-| Strong border | `#7B8BA6`           | Interactive outlines (3:1+)   |
+| Background    | `#FFFFFF`           | Page and card background      |
+| Surface       | `#F3F3EF`           | Quiet supporting surfaces     |
+| Ink           | `#0A0A0A`           | Body, headings, and controls  |
+| Muted         | `#5C5C57`           | Supporting copy               |
+| Accent        | `#0A0A0A`           | Links, focus, primary buttons |
+| Strong border | `#8A8A84`           | Interactive outlines (3:1+)   |
 | Radius        | `6–12px`            | Controls and cards            |
 | Shadow        | `shadow-card`       | Quiet card lift               |
-| Duration      | `150 / 220 / 400ms` | Hover, focus, reveal          |
+| Duration      | `150 / 220 / 550ms` | Hover, focus, reveal          |
 
 Reusable primitives: `Container`, `SectionHeading`, `Button`, `Tag`, `ProjectCard`, `SocialLink`, `TimelineItem`, `SectionReveal`.
 
-Geist is used for body and headings. JetBrains Mono is used for tags, labels, dates, and metadata. Focus rings are a 2px accent outline with offset. Color pairs were chosen to meet WCAG 2.2 AA contrast. Interactive controls use the strong border so their shape stays visible at rest.
+Instrument Sans is used for body copy, Cormorant Garamond for display headings, and JetBrains Mono for tags, labels, dates, and metadata. Focus rings are a 2px black outline with offset. Motion is an optional enhancement: section and page transitions respect reduced-motion preferences, and the decorative cursor follower only loads on fine-pointer devices.
 
 ## Stack
 
