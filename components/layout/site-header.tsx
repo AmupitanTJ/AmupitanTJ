@@ -20,6 +20,7 @@ export function SiteHeader() {
             width={30}
             height={30}
             priority
+            className="invert"
           />
           <span className="hidden sm:inline">{site.shortName}.</span>
           <span className="sr-only"> {site.name} home</span>

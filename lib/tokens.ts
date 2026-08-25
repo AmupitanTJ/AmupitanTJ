@@ -12,17 +12,17 @@
  * - Subtle borders `#2C3A55` are for non-interactive rules only.
  */
 export const color = {
-  navy: "#FFFFFF",
-  surface: "#FFFFFF",
-  surfaceRaised: "#F3F3EF",
-  foreground: "#0A0A0A",
-  muted: "#5C5C57",
-  accent: "#0A0A0A",
-  accentStrong: "#2A2A2A",
-  accentForeground: "#FFFFFF",
-  border: "#DEDED8",
-  borderStrong: "#8A8A84",
-  danger: "#1F1F1F",
+  navy: "#050505",
+  surface: "#0A0A0A",
+  surfaceRaised: "#151515",
+  foreground: "#F5F5F2",
+  muted: "#A6A6A0",
+  accent: "#F5F5F2",
+  accentStrong: "#D9D9D4",
+  accentForeground: "#050505",
+  border: "#292929",
+  borderStrong: "#73736F",
+  danger: "#E5E5E0",
 } as const;
 
 export const type = {
@@ -49,7 +49,7 @@ export const space = {
 } as const;
 
 export const shadow = {
-  card: "0 12px 40px rgb(0 0 0 / 0.07)",
+  card: "0 16px 48px rgb(0 0 0 / 0.42)",
 } as const;
 
 export const duration = {

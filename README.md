@@ -2,7 +2,7 @@
 
 Personal web developer site for [Tosin Joseph Amupitan](https://github.com/AmupitanTJ/). Built as a typed Next.js application with content kept separate from the interface.
 
-The visual system is a monochrome editorial portfolio: white space, black typography, grayscale photography, Instrument Sans for interface copy, Cormorant Garamond for display type, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
+The visual system is a dark monochrome editorial portfolio: near-black surfaces, off-white typography, grayscale photography, Instrument Sans for interface copy, Cormorant Garamond for display type, and JetBrains Mono for metadata. Tokens live in `app/globals.css` and are mirrored in `lib/tokens.ts`.
 
 ## Visual system
 
@@ -10,12 +10,12 @@ Tokens are defined in `app/globals.css` (`@theme`) and mirrored in `lib/tokens.t
 
 | Token         | Value               | Role                          |
 | ------------- | ------------------- | ----------------------------- |
-| Background    | `#FFFFFF`           | Page and card background      |
-| Surface       | `#F3F3EF`           | Quiet supporting surfaces     |
-| Ink           | `#0A0A0A`           | Body, headings, and controls  |
-| Muted         | `#5C5C57`           | Supporting copy               |
-| Accent        | `#0A0A0A`           | Links, focus, primary buttons |
-| Strong border | `#8A8A84`           | Interactive outlines (3:1+)   |
+| Background    | `#050505`           | Page background               |
+| Surface       | `#151515`           | Quiet supporting surfaces     |
+| Ink           | `#F5F5F2`           | Body, headings, and controls  |
+| Muted         | `#A6A6A0`           | Supporting copy               |
+| Accent        | `#F5F5F2`           | Links, focus, primary buttons |
+| Strong border | `#73736F`           | Interactive outlines (3:1+)   |
 | Radius        | `6–12px`            | Controls and cards            |
 | Shadow        | `shadow-card`       | Quiet card lift               |
 | Duration      | `150 / 220 / 550ms` | Hover, focus, reveal          |

@@ -20,10 +20,7 @@ export const projects: Project[] = [
       "FFmpeg",
       "OpenAI API",
     ],
-    coverImage: {
-      src: "/projects/vantraclip-logo.png",
-      alt: "VantraClip logo in black and purple on a white background",
-    },
+    coverImage: null,
     gallery: [],
     liveUrl: "https://vantraclip.com/",
     githubUrl: "https://github.com/AmupitanTJ/Vantraclip",

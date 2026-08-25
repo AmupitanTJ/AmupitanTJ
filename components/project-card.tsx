@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const inProgress = project.status === "in-progress";
 
   return (
-    <article className="group border-foreground bg-card shadow-card duration-base flex h-full min-w-0 flex-col overflow-hidden rounded-lg border transition-[transform,box-shadow] ease-out hover:shadow-[8px_8px_0_rgb(10_10_10/0.12)] motion-safe:hover:-translate-y-1">
+    <article className="group border-border-strong bg-card shadow-card duration-base hover:border-foreground flex h-full min-w-0 flex-col overflow-hidden rounded-lg border transition-[border-color,transform,box-shadow] ease-out hover:shadow-[8px_8px_0_rgb(245_245_242/0.12)] motion-safe:hover:-translate-y-1">
       <ProjectCover title={project.title} image={project.coverImage} />
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">

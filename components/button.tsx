@@ -9,9 +9,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "border border-signal bg-signal text-navy hover:bg-signal-strong hover:shadow-[4px_4px_0_rgb(138_138_132/0.55)]",
+          "border border-signal bg-signal text-navy hover:bg-signal-strong hover:shadow-[4px_4px_0_rgb(115_115_111/0.65)]",
         secondary:
-          "border border-foreground bg-transparent text-foreground hover:bg-surface-raised hover:shadow-[4px_4px_0_rgb(222_222_216)]",
+          "border border-foreground bg-transparent text-foreground hover:bg-surface-raised hover:shadow-[4px_4px_0_rgb(115_115_111/0.45)]",
         ghost: "text-muted-foreground hover:text-foreground",
       },
       size: {
