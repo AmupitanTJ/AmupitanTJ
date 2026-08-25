@@ -48,14 +48,14 @@ export function HomeHero() {
           delay={0.08}
           className="relative mx-auto w-full max-w-md lg:mx-0"
         >
-          <div className="border-foreground bg-surface-raised relative aspect-[4/5] overflow-hidden border">
+          <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="/images/tosin-portrait-monochrome.webp"
-              alt="Tosin Joseph Amupitan in a monochrome studio portrait"
+              src="/images/tosin-portrait-cutout.png"
+              alt="Tosin Joseph Amupitan in a monochrome portrait"
               fill
               priority
               sizes="(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 100vw"
-              className="object-cover"
+              className="origin-top scale-[1.12] object-cover object-top"
             />
           </div>
           <div className="bg-foreground text-background absolute -right-2 -bottom-3 px-4 py-2 sm:-right-4">
