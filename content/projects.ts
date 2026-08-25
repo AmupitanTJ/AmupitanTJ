@@ -2,102 +2,105 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "clarita",
+    title: "Clarita",
+    shortDescription:
+      "A completed React product shaped around a clear, responsive user experience.",
+    longDescription:
+      "Clarita is a completed web product built with React and TypeScript. The work focused on translating a product direction into a polished responsive interface, reusable components, predictable states, and a coherent end-to-end experience.",
+    year: "2026",
+    role: "Product engineering",
+    status: "production",
+    featured: true,
+    stack: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    coverImage: null,
+    gallery: [],
+    liveUrl: null,
+    githubUrl: null,
+    challenge:
+      "Turn a product concept into a dependable interface that stays clear across screen sizes, interaction states, and repeated user workflows.",
+    solution:
+      "I structured the product around reusable React components and typed TypeScript models, then used responsive layout rules and consistent interface patterns to keep the experience focused and maintainable.",
+    keyDecisions: [
+      "Use TypeScript to make component contracts and product states explicit.",
+      "Build reusable React primitives instead of repeating page-level interface logic.",
+      "Treat responsive behaviour and accessible feedback as core product requirements.",
+    ],
+    outcomes: [
+      "Delivered a complete, responsive product experience.",
+      "Established a component structure that supports consistent iteration and maintenance.",
+    ],
+    nextSteps: [],
+  },
+  {
+    slug: "the-judge",
+    title: "The Judge",
+    shortDescription:
+      "A source-led Nigerian legal research product designed for clear, authoritative answers.",
+    longDescription:
+      "The Judge is a completed legal research product for navigating Nigerian law. It brings questions, source-backed answers, research history, documents, matters, and a reference library into one focused workspace.",
+    year: "2026",
+    role: "Frontend and product engineering",
+    status: "production",
+    featured: true,
+    stack: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    coverImage: null,
+    gallery: [],
+    liveUrl: null,
+    githubUrl: null,
+    challenge:
+      "Present a dense legal research workflow in a way that feels calm, direct, and trustworthy while keeping source material close to every conclusion.",
+    solution:
+      "I developed a structured React interface that separates asking, researching, reviewing sources, and organising documents without losing context. TypeScript keeps the product states and reusable interface contracts explicit.",
+    keyDecisions: [
+      "Prioritise source visibility and readable hierarchy throughout the research experience.",
+      "Separate research, library, documents, and matters into distinct but connected workflows.",
+      "Use restrained interaction patterns to support focus in an information-dense product.",
+    ],
+    outcomes: [
+      "Delivered a cohesive legal research workspace with a clear question-to-source flow.",
+      "Created a reusable interface system for research, documents, and matter organisation.",
+    ],
+    nextSteps: [],
+  },
+  {
     slug: "vantraclip",
     title: "VantraClip",
     shortDescription:
-      "A full-stack platform for turning long videos into captioned, social-ready clips.",
+      "An AI-assisted platform for turning long videos into captioned, social-ready clips.",
     longDescription:
-      "VantraClip is an AI-assisted video clipping platform that processes long videos into shorter clips with highlight detection, captions, face-aware reframing, branding, and multiple export formats.",
+      "VantraClip is an AI-assisted video clipping platform in active development. It processes long videos into shorter clips with highlight detection, captions, face-aware reframing, branding, and multiple export formats.",
     year: "2026",
-    role: "Full-stack development",
+    role: "Full-stack product development",
     status: "in-progress",
     featured: true,
     stack: [
       "React",
+      "TypeScript",
       "Node.js",
       "Express",
       "PostgreSQL",
       "FFmpeg",
-      "OpenAI API",
     ],
     coverImage: null,
     gallery: [],
     liveUrl: "https://vantraclip.com/",
     githubUrl: "https://github.com/AmupitanTJ/Vantraclip",
     challenge:
-      "Coordinate a long-running media workflow that can accept a source video, find useful moments, create readable captions, reframe footage, and export clips without blocking the main web application.",
+      "Coordinate a long-running media workflow that can accept a source video, identify useful moments, create readable captions, reframe footage, and export clips without blocking the main application.",
     solution:
-      "The project combines a React and Vite client with an Express API, PostgreSQL, S3-compatible storage, and FFmpeg processing. OpenAI supports transcription and highlight selection, while TensorFlow.js and BlazeFace support face-aware framing. API and worker roles can run separately while sharing the same database and storage.",
+      "The product combines a React and TypeScript client with Express services, PostgreSQL, S3-compatible storage, and FFmpeg processing. API and worker responsibilities remain separable while sharing the same data and storage layer.",
     keyDecisions: [
       "Keep API and processing-worker roles separable for long-running video jobs.",
-      "Snap clip boundaries to complete spoken thoughts instead of forcing a fixed number of clips.",
-      "Use signed browser uploads so storage credentials remain on the server.",
+      "Snap clip boundaries to complete spoken thoughts instead of forcing fixed cuts.",
+      "Use signed browser uploads so storage credentials remain server-side.",
     ],
     outcomes: [
-      "A public full-stack codebase and a live web application at vantraclip.com.",
-      "A workflow covering projects, authentication, job controls, captions, branding, and multiple aspect ratios.",
+      "Built the core workflow for uploads, transcription, highlight selection, captions, reframing, and multi-format exports.",
+      "Established the full-stack foundation for authentication, projects, storage, processing jobs, and delivery.",
     ],
-    nextSteps: [],
-  },
-  {
-    slug: "trove-calculator",
-    title: "TROVE Calc",
-    shortDescription:
-      "An installable standard and scientific calculator built with vanilla web technologies.",
-    longDescription:
-      "TROVE Calc is a standard and scientific calculator Progressive Web App built with HTML, CSS, and vanilla JavaScript. It includes calculation history, memory controls, themes, keyboard support, and offline use.",
-    year: "2026",
-    role: "Frontend development",
-    status: "production",
-    featured: true,
-    stack: ["HTML", "CSS", "JavaScript", "Progressive Web App"],
-    coverImage: null,
-    gallery: [],
-    liveUrl: "https://trove-calc-ojatrx05d-amupitantjs-projects.vercel.app/",
-    githubUrl: "https://github.com/AmupitanTJ/Trove-calculator",
-    challenge:
-      "Build one calculator that supports standard and scientific operations, works from the keyboard, and remains usable after the first visit without a network connection.",
-    solution:
-      "The application uses a custom expression engine instead of eval(), a service worker for offline caching, and a web manifest for installation. Its interface also provides memory controls, timestamped history, and light and dark themes.",
-    keyDecisions: [
-      "Use HTML, CSS, and vanilla JavaScript without a framework.",
-      "Avoid eval() in the expression engine.",
-      "Cache the core application files for offline use.",
+    nextSteps: [
+      "Continue refining processing reliability, output quality, and the end-to-end product experience.",
     ],
-    outcomes: [
-      "A public calculator application that can be installed as a PWA.",
-      "A public source repository with setup and offline-use documentation.",
-    ],
-    nextSteps: [],
-  },
-  {
-    slug: "wdd130-coursework",
-    title: "WDD 130 Coursework",
-    shortDescription:
-      "A repository of HTML and CSS coursework, including a multi-page rafting website.",
-    longDescription:
-      "A public collection of WDD 130 learning exercises. It contains a personal course homepage, weekly HTML and CSS exercises, and a multi-page rafting website with home, about, trips, and contact pages.",
-    year: "2025",
-    role: "Student frontend work",
-    status: "study",
-    featured: false,
-    stack: ["HTML", "CSS"],
-    coverImage: null,
-    gallery: [],
-    liveUrl: null,
-    githubUrl: "https://github.com/AmupitanTJ/wdd130",
-    challenge:
-      "Practice the foundations of page structure, styling, layout, forms, tables, responsive design, and multi-page navigation through weekly coursework.",
-    solution:
-      "The repository separates weekly exercises into folders and develops a larger rafting website across four linked pages using semantic HTML and shared CSS.",
-    keyDecisions: [
-      "Keep individual exercises available as a record of the learning process.",
-      "Use a shared stylesheet and consistent navigation across the rafting pages.",
-    ],
-    outcomes: [
-      "A public record of foundational HTML and CSS coursework.",
-      "A multi-page rafting website alongside smaller layout exercises.",
-    ],
-    nextSteps: [],
   },
 ];

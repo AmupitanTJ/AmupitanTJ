@@ -32,8 +32,8 @@ describe("siteUrl", () => {
     vi.stubEnv("SITE_URL", "https://portfolio.example/");
 
     expect(siteUrl()).toBe("https://portfolio.example");
-    expect(siteUrl("projects/trove-calculator")).toBe(
-      "https://portfolio.example/projects/trove-calculator",
+    expect(siteUrl("projects/the-judge")).toBe(
+      "https://portfolio.example/projects/the-judge",
     );
   });
 

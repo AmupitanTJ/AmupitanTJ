@@ -4,28 +4,28 @@ import { skills } from "@/content/skills";
 export const about: AboutContent = {
   title: "About me",
   intro: [
-    "I am Tosin Joseph Amupitan, a web developer based in Nigeria. I build projects to understand how the different parts of a web product work together, from the interface people use to the services running behind it.",
-    "My WDD 130 coursework records my foundations in HTML and CSS. TROVE Calc helped me practise application logic with vanilla JavaScript. My current project, VantraClip, has taken me into React, Express, PostgreSQL, media processing with FFmpeg, authentication, storage, and API integrations.",
-    "This portfolio is a record of work I have actually built. I keep project status and descriptions direct so it is clear what is finished, what is still being improved, and what I learned along the way.",
+    "I am Tosin Joseph Amupitan, a web developer based in Abuja. I design and build modern web products with a strong focus on clarity, responsive behaviour, and dependable implementation.",
+    "React and TypeScript are central to most of my work. I use them to create reusable interface systems, model product behaviour clearly, and connect polished frontends to reliable services and data.",
+    "My completed product work includes Clarita and The Judge. I am currently building VantraClip, which extends that experience into media processing, background jobs, storage, PostgreSQL, FFmpeg, and external API integrations.",
   ],
   approach: [
     {
-      title: "Learn by building",
-      body: "I understand tools best when I use them in a real project, solve the problems that appear, and document the result.",
+      title: "Start with the outcome",
+      body: "I define what the product needs to achieve, then shape the interface and technical decisions around that goal.",
     },
     {
-      title: "Work across the stack",
-      body: "I am growing beyond interface work by building APIs, database-backed features, authentication, file processing, and deployment workflows.",
+      title: "Engineer for change",
+      body: "Typed data, reusable React components, and clear boundaries keep products easier to extend and maintain.",
     },
     {
       title: "Keep the interface clear",
       body: "Responsive layouts, understandable controls, keyboard support, and useful feedback are part of the build, not finishing touches.",
     },
     {
-      title: "Describe the work honestly",
-      body: "I do not present coursework as client work or an unfinished project as a finished product. Each case study reflects its real status and scope.",
+      title: "Deliver with transparency",
+      body: "I communicate scope and status clearly, test the important paths, and keep the work grounded in real product requirements.",
     },
   ],
   skills,
-  now: "Developing and refining VantraClip while using this portfolio to document my real projects and progress.",
+  now: "Currently developing VantraClip while remaining open to thoughtful web product and frontend engineering work.",
 };

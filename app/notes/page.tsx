@@ -15,9 +15,9 @@ export default function NotesPage() {
 
   return (
     <Container className="py-section">
-      <PageIntro code="05" kicker="Notes" title="Learning notes">
-        This section is reserved for practical notes from projects I have
-        completed or am actively building.
+      <PageIntro code="05" kicker="Notes" title="Engineering notes">
+        Practical observations from designing, building, and shipping web
+        products.
       </PageIntro>
 
       {published.length === 0 ? (

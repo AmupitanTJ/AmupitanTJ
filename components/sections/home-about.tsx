@@ -15,7 +15,7 @@ export function HomeAbout() {
         <SectionReveal>
           <SectionHeading
             eyebrow="About"
-            title="From foundations to full-stack projects"
+            title="Product thinking, engineered in React"
             id="about-title"
           />
         </SectionReveal>

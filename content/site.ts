@@ -2,15 +2,15 @@ import type { SiteContent } from "@/types";
 
 export const site: SiteContent = {
   name: "Tosin Joseph Amupitan",
-  shortName: "TJA",
+  shortName: "TJ",
   role: "Web Developer",
-  location: "Nigeria",
-  headline: "Learning by building real products.",
+  location: "Abuja, Nigeria",
+  headline: "Building reliable digital products.",
   description:
-    "I build web applications across the frontend and backend. My public work includes VantraClip, TROVE Calc, and the projects that document my progress as a developer.",
+    "I design and build responsive web products with React and TypeScript. My work includes Clarita, The Judge, and the ongoing VantraClip platform.",
   locale: "en_GB",
   focus:
-    "Currently developing VantraClip, an AI-assisted video clipping platform, while continuing to strengthen my full-stack web development skills.",
+    "Building production-minded interfaces and full-stack products with React, TypeScript, Next.js, Node.js, and PostgreSQL.",
   url:
     process.env.SITE_URL?.trim() ||
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||

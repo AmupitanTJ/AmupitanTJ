@@ -1,10 +1,11 @@
 import type { HomeContent } from "@/types";
 
 export const home: HomeContent = {
-  eyebrow: "Tosin Joseph Amupitan · Web Developer · Nigeria",
-  heading: "I learn by building real web products.",
-  lede: "My work ranges from a vanilla JavaScript calculator to VantraClip, a full-stack video clipping platform built with React, Node.js, PostgreSQL, and FFmpeg.",
-  availability: "Currently focused on building and improving VantraClip.",
+  eyebrow: "Tosin Joseph Amupitan · Web Developer · Abuja",
+  heading: "I build reliable web products that move ideas forward.",
+  lede: "I design and engineer polished, responsive applications with React and TypeScript—from focused product interfaces to full-stack platforms.",
+  availability:
+    "Available for product work and collaboration · Currently building VantraClip.",
   primaryCta: { label: "See my projects", href: "#work" },
   secondaryCta: { label: "Get in touch", href: "#contact" },
   stack: [
@@ -18,10 +19,10 @@ export const home: HomeContent = {
     "PostgreSQL",
   ],
   about: [
-    "I am Tosin Joseph Amupitan, a web developer based in Nigeria. I work across frontend interfaces and backend services, learning by turning ideas into working applications.",
-    "My public repositories show that journey: foundational HTML and CSS coursework, TROVE Calc in vanilla JavaScript, and VantraClip as my current full-stack project.",
+    "I am Tosin Joseph Amupitan, a web developer based in Abuja. React and TypeScript sit at the centre of my work, helping me build clear interfaces, reusable systems, and dependable product experiences.",
+    "My product work includes Clarita and The Judge, alongside VantraClip—an AI-assisted video platform I am actively developing across the frontend, backend, data, and media-processing layers.",
   ],
-  contactHeading: "Want to talk about a project or opportunity?",
+  contactHeading: "Have a product worth building?",
   contactBody:
-    "Send me a message through the form, or reach me through GitHub and LinkedIn.",
+    "Tell me what you are creating, where you need support, and what a successful outcome looks like.",
 };

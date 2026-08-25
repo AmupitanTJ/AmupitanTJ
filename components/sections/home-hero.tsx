@@ -12,7 +12,7 @@ export function HomeHero() {
       className="pt-8 pb-14 sm:pt-14 sm:pb-20"
       aria-labelledby="home-title"
     >
-      <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.72fr] lg:gap-16">
+      <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.88fr] lg:gap-10">
         <SectionReveal>
           <p className="meta text-muted-foreground flex items-center gap-3 uppercase">
             <span className="bg-foreground h-px w-8" aria-hidden="true" />
@@ -20,7 +20,7 @@ export function HomeHero() {
           </p>
           <h1
             id="home-title"
-            className="display text-foreground mt-6 max-w-4xl text-[3.7rem] sm:text-7xl md:text-8xl lg:text-[7.25rem]"
+            className="display text-foreground mt-6 max-w-4xl text-[3.55rem] sm:text-7xl md:text-8xl lg:text-[6.4rem]"
           >
             {home.heading}
           </h1>
@@ -46,20 +46,20 @@ export function HomeHero() {
 
         <SectionReveal
           delay={0.08}
-          className="relative mx-auto w-full max-w-md lg:mx-0"
+          className="relative mx-auto w-full max-w-lg lg:mx-0"
         >
-          <div className="relative aspect-[4/5] overflow-hidden">
+          <div className="border-border-strong bg-surface-raised relative aspect-[4/5] overflow-hidden border">
             <Image
-              src="/images/tosin-portrait-cutout.png"
-              alt="Tosin Joseph Amupitan in a monochrome portrait"
+              src="/images/tosin-portrait.jpg"
+              alt="Tosin Joseph Amupitan in a black-and-white studio portrait"
               fill
               priority
               sizes="(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 100vw"
-              className="origin-top scale-[1.12] object-cover object-top"
+              className="object-cover object-center"
             />
           </div>
           <div className="bg-foreground text-background absolute -right-2 -bottom-3 px-4 py-2 sm:-right-4">
-            <span className="meta uppercase">Web developer · Lagos</span>
+            <span className="meta uppercase">Web developer · Abuja</span>
           </div>
         </SectionReveal>
       </div>

@@ -11,7 +11,7 @@ import { padIndex } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "About Tosin Joseph Amupitan, a web developer in Nigeria building VantraClip and other public web projects.",
+    "About Tosin Joseph Amupitan, a React and TypeScript web developer based in Abuja, Nigeria.",
   path: "/about",
 });
 
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <SectionReveal>
           <SectionHeading
             eyebrow="Approach"
-            title="How I approach learning and building"
+            title="How I approach product work"
             id="approach-title"
           />
         </SectionReveal>

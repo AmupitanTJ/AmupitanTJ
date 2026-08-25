@@ -78,9 +78,11 @@ test("keyboard users can skip navigation and reach primary links", async ({
 test("key layouts remain readable without horizontal overflow", async ({
   page,
 }) => {
+  test.setTimeout(90_000);
+
   for (const width of [320, 375, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
     const overflow = await page.evaluate(

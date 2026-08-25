@@ -8,7 +8,7 @@ test("contact form exposes labels and useful validation", async ({ page }) => {
   await expect(page.getByLabel("Subject")).toBeVisible();
   await expect(page.getByLabel("Message")).toBeVisible();
 
-  await page.getByRole("button", { name: "Send message" }).click();
+  await page.getByRole("button", { name: "Send project enquiry" }).click();
 
   await expect(
     page.getByText("Enter your name using at least two characters."),
@@ -34,7 +34,7 @@ test("contact form shows loading and success states", async ({ page }) => {
   await page.goto("/contact");
   await fillContactForm(page);
 
-  await page.getByRole("button", { name: "Send message" }).click();
+  await page.getByRole("button", { name: "Send project enquiry" }).click();
   await expect(page.getByRole("button", { name: "Sending…" })).toBeDisabled();
   await expect(page.getByRole("status")).toContainText(
     "your message has been sent successfully",
@@ -56,7 +56,7 @@ test("contact form shows a recoverable failure state", async ({ page }) => {
   await page.goto("/contact");
   await fillContactForm(page);
 
-  await page.getByRole("button", { name: "Send message" }).click();
+  await page.getByRole("button", { name: "Send project enquiry" }).click();
   await expect(
     page.getByText(/contact form is temporarily unavailable/i),
   ).toBeVisible();

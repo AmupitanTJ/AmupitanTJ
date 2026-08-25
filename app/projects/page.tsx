@@ -7,7 +7,7 @@ import { getProjects } from "@/lib/projects";
 export const metadata = createMetadata({
   title: "Projects",
   description:
-    "Web development projects by Tosin Joseph Amupitan, including VantraClip, TROVE Calc, and WDD 130 coursework.",
+    "Web products by Tosin Joseph Amupitan, including Clarita, The Judge, and VantraClip.",
   path: "/projects",
 });
 

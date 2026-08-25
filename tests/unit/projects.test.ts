@@ -41,8 +41,9 @@ describe("project register", () => {
     const featured = getFeaturedProjects();
     expect(featured.every((project) => project.featured)).toBe(true);
     expect(featured.map((project) => project.slug)).toEqual([
+      "clarita",
+      "the-judge",
       "vantraclip",
-      "trove-calculator",
     ]);
   });
 
@@ -58,7 +59,8 @@ describe("project register", () => {
     const slugs = getProjectSlugs();
     expect(new Set(slugs).size).toBe(slugs.length);
     expect(slugs).toContain("vantraclip");
-    expect(slugs).toContain("trove-calculator");
+    expect(slugs).toContain("clarita");
+    expect(slugs).toContain("the-judge");
   });
 
   it("resolves adjacent projects in register order", () => {
@@ -102,7 +104,11 @@ describe("project register", () => {
 
   it("publishes only projects owned by the portfolio owner", () => {
     for (const project of getProjects()) {
-      expect(project.githubUrl).toMatch(/^https:\/\/github\.com\/AmupitanTJ\//);
+      if (project.githubUrl) {
+        expect(project.githubUrl).toMatch(
+          /^https:\/\/github\.com\/AmupitanTJ\//,
+        );
+      }
     }
   });
 

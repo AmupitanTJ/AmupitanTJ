@@ -22,7 +22,9 @@ export function SiteHeader() {
             priority
             className="invert"
           />
-          <span className="hidden sm:inline">{site.shortName}.</span>
+          <span className="font-display text-xl font-semibold tracking-[-0.08em] italic">
+            TJ
+          </span>
           <span className="sr-only"> {site.name} home</span>
         </Link>
         <PrimaryNav />

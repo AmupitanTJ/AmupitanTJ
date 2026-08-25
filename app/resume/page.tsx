@@ -20,16 +20,16 @@ export default function ResumePage() {
 
   return (
     <Container className="py-section">
-      <PageIntro code="04" kicker="Profile" title="Current work and skills">
-        A direct view of the project I am building now and the technologies I
-        have used across my public work.
+      <PageIntro code="04" kicker="Profile" title="Product work and expertise">
+        Selected product experience and the technologies I use to turn ideas
+        into dependable web applications.
       </PageIntro>
 
       <section className="mt-16" aria-labelledby="experience-title">
         <SectionReveal>
           <SectionHeading
             eyebrow="Project work"
-            title="What I am building now"
+            title="Selected product experience"
             id="experience-title"
           />
         </SectionReveal>

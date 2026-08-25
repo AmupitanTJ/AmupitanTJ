@@ -15,9 +15,7 @@ describe("isNavActive", () => {
   });
 
   it("maps inner routes back to the homepage sections", () => {
-    expect(isNavActive("/projects", "/projects/trove-calculator", "")).toBe(
-      true,
-    );
+    expect(isNavActive("/projects", "/projects/the-judge", "")).toBe(true);
     expect(isNavActive("/notes", "/notes", "")).toBe(true);
     expect(isNavActive("/contact", "/contact", "")).toBe(true);
     expect(isNavActive("/about", "/about", "")).toBe(true);

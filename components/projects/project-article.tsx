@@ -126,7 +126,7 @@ export function ProjectArticle({
 function Cover({ image, title }: { image: MediaAsset | null; title: string }) {
   if (!image) {
     return (
-      <div className="border-border-strong mt-10 flex min-h-64 items-end overflow-hidden rounded-lg border bg-[linear-gradient(135deg,rgba(78,162,224,0.14),transparent_55%)] p-6 sm:min-h-80 sm:p-8">
+      <div className="border-border-strong mt-10 flex min-h-64 items-end overflow-hidden rounded-lg border bg-[linear-gradient(135deg,rgba(245,245,242,0.09),transparent_55%)] p-6 sm:min-h-80 sm:p-8">
         <p className="display text-foreground/80 max-w-[12ch] text-4xl sm:text-6xl">
           {title}
         </p>

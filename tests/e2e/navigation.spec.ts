@@ -6,18 +6,17 @@ test("index presents Tosin Joseph Amupitan and primary sections", async ({
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "I learn by building real web products.",
+    "I build reliable web products that move ideas forward.",
   );
   await expect(page.getByRole("link", { name: "VantraClip" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "TROVE Calc" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Clarita" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "The Judge" })).toBeVisible();
   await expect(
     page.getByRole("heading", {
-      name: "Want to talk about a project or opportunity?",
+      name: "Have a product worth building?",
     }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Use the form or reach me through GitHub or LinkedIn."),
-  ).toBeVisible();
+  await expect(page.getByText("Start the conversation")).toBeVisible();
 });
 
 test("projects index and a case file load", async ({ page }) => {
@@ -26,12 +25,12 @@ test("projects index and a case file load", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "My work" })).toBeVisible();
   await page
     .getByRole("article")
-    .filter({ hasText: "TROVE Calc" })
+    .filter({ hasText: "The Judge" })
     .getByRole("link", { name: "View case study", exact: true })
     .click();
-  await expect(page).toHaveURL(/\/projects\/trove-calculator$/);
+  await expect(page).toHaveURL(/\/projects\/the-judge$/);
   await expect(
-    page.getByRole("heading", { level: 1, name: "TROVE Calc" }),
+    page.getByRole("heading", { level: 1, name: "The Judge" }),
   ).toBeVisible();
 });
 
@@ -39,22 +38,22 @@ test("legacy work paths redirect to projects", async ({ page }) => {
   await page.goto("/work");
   await expect(page).toHaveURL(/\/projects\/?$/);
 
-  await page.goto("/work/trove-calculator");
-  await expect(page).toHaveURL(/\/projects\/trove-calculator$/);
+  await page.goto("/work/the-judge");
+  await expect(page).toHaveURL(/\/projects\/the-judge$/);
 });
 
 test("resume and notes structure are reachable", async ({ page }) => {
   await page.goto("/resume");
   await expect(
-    page.getByRole("heading", { name: "Current work and skills" }),
+    page.getByRole("heading", { name: "Product work and expertise" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "What I am building now" }),
+    page.getByRole("heading", { name: "Selected product experience" }),
   ).toBeVisible();
 
   await page.goto("/notes");
   await expect(
-    page.getByRole("heading", { name: "Learning notes" }),
+    page.getByRole("heading", { name: "Engineering notes" }),
   ).toBeVisible();
   await expect(page.getByText(/writing is on the way/i)).toBeVisible();
 });
@@ -65,7 +64,7 @@ test("about and contact pages are reachable", async ({ page }) => {
 
   await page.goto("/contact");
   await expect(
-    page.getByRole("heading", { name: "Get in touch" }),
+    page.getByRole("heading", { name: "Let's build something useful." }),
   ).toBeVisible();
   await expect(page.getByLabel("Name")).toBeVisible();
 });
@@ -107,12 +106,12 @@ test("reduced motion keeps homepage content visible", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
 
-  await expect(page.getByRole("link", { name: "TROVE Calc" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "The Judge" })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Projects I have built" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "What I am building now" }),
+    page.getByRole("heading", { name: "Products and platforms" }),
   ).toBeVisible();
 });
 

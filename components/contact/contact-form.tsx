@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type UseFormRegisterReturn } from "react-hook-form";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -95,27 +96,32 @@ export function ContactForm({ to }: ContactFormProps) {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className="space-y-5" noValidate>
-        <TextField
-          id="name"
-          label="Name"
-          autoComplete="name"
-          error={errors.name?.message}
-          disabled={isSubmitting}
-          registration={register("name")}
-        />
-        <TextField
-          id="email"
-          label="Email"
-          type="email"
-          autoComplete="email"
-          error={errors.email?.message}
-          disabled={isSubmitting}
-          registration={register("email")}
-        />
+      <form onSubmit={onSubmit} className="space-y-6" noValidate>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <TextField
+            id="name"
+            label="Name"
+            placeholder="Your name"
+            autoComplete="name"
+            error={errors.name?.message}
+            disabled={isSubmitting}
+            registration={register("name")}
+          />
+          <TextField
+            id="email"
+            label="Email"
+            type="email"
+            placeholder="you@example.com"
+            autoComplete="email"
+            error={errors.email?.message}
+            disabled={isSubmitting}
+            registration={register("email")}
+          />
+        </div>
         <TextField
           id="subject"
           label="Subject"
+          placeholder="What would you like to build?"
           autoComplete="off"
           error={errors.subject?.message}
           disabled={isSubmitting}
@@ -123,14 +129,17 @@ export function ContactForm({ to }: ContactFormProps) {
         />
 
         <div className="space-y-2">
-          <Label htmlFor="message">Message</Label>
+          <Label htmlFor="message" className="meta uppercase">
+            Message
+          </Label>
           <Textarea
             id="message"
             rows={7}
+            placeholder="Share the goal, scope, timeline, and where you need support."
             disabled={isSubmitting}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="border-border-strong bg-surface min-h-40 rounded-md"
+            className="border-border-strong bg-background/40 min-h-48 rounded-lg p-4"
             {...register("message")}
           />
           <FieldError id="message-error" message={errors.message?.message} />
@@ -149,8 +158,15 @@ export function ContactForm({ to }: ContactFormProps) {
           />
         </div>
 
-        <Button type="submit" disabled={isSubmitting} aria-busy={isSubmitting}>
-          {isSubmitting ? "Sending…" : "Send message"}
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full sm:w-auto"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+        >
+          {isSubmitting ? "Sending…" : "Send project enquiry"}
+          {!isSubmitting ? <ArrowUpRight aria-hidden="true" /> : null}
         </Button>
 
         <div aria-live="polite" aria-atomic="true">
@@ -187,6 +203,7 @@ type TextFieldProps = {
   id: string;
   label: string;
   type?: string;
+  placeholder?: string;
   autoComplete?: string;
   error?: string;
   disabled?: boolean;
@@ -197,6 +214,7 @@ function TextField({
   id,
   label,
   type = "text",
+  placeholder,
   autoComplete,
   error,
   disabled,
@@ -204,15 +222,18 @@ function TextField({
 }: TextFieldProps) {
   return (
     <div className="space-y-2">
-      <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={id} className="meta uppercase">
+        {label}
+      </Label>
       <Input
         id={id}
         type={type}
+        placeholder={placeholder}
         autoComplete={autoComplete}
         disabled={disabled}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className="border-border-strong bg-surface rounded-md"
+        className="border-border-strong bg-background/40 h-12 rounded-lg px-4"
         {...registration}
       />
       <FieldError id={`${id}-error`} message={error} />

@@ -12,8 +12,12 @@ const pages = [
     title: "VantraClip — Tosin Joseph Amupitan",
   },
   {
-    path: "/projects/trove-calculator",
-    title: "TROVE Calc — Tosin Joseph Amupitan",
+    path: "/projects/clarita",
+    title: "Clarita — Tosin Joseph Amupitan",
+  },
+  {
+    path: "/projects/the-judge",
+    title: "The Judge — Tosin Joseph Amupitan",
   },
 ] as const;
 
@@ -63,7 +67,8 @@ test("metadata routes expose sitemap, robots, and manifest", async ({
 }) => {
   const sitemap = await request.get("/sitemap.xml");
   expect(sitemap.ok()).toBe(true);
-  expect(await sitemap.text()).toContain("/projects/trove-calculator");
+  expect(await sitemap.text()).toContain("/projects/clarita");
+  expect(await sitemap.text()).toContain("/projects/the-judge");
 
   const robots = await request.get("/robots.txt");
   expect(robots.ok()).toBe(true);

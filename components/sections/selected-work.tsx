@@ -17,7 +17,7 @@ export function SelectedWork({ projects }: { projects: Project[] }) {
           eyebrow="Selected work"
           title="Projects I have built"
           id="selected-work-title"
-          description="Real projects from my public GitHub repositories, with their current status and my role stated clearly."
+          description="Selected products shaped through responsive interface design, reusable React systems, and practical engineering decisions."
         />
       </SectionReveal>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
