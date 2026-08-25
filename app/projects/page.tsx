@@ -17,8 +17,8 @@ export default function ProjectsPage() {
   return (
     <Container className="py-section">
       <PageIntro code="01" kicker="Projects" title="My work">
-        Public projects that show my progress from HTML and CSS foundations to
-        JavaScript applications and full-stack development.
+        Selected product work built around React, TypeScript, thoughtful
+        interfaces, and dependable full-stack foundations.
       </PageIntro>
       <div className="mt-12">
         <WorkIndex projects={projects} />

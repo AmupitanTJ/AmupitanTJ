@@ -135,13 +135,14 @@ function Cover({ image, title }: { image: MediaAsset | null; title: string }) {
   }
 
   return (
-    <figure className="border-border-strong bg-surface mt-10 overflow-hidden rounded-lg border">
+    <figure className="border-border-strong bg-surface-raised relative mt-10 aspect-[16/9] overflow-hidden rounded-lg border">
       <Image
         src={image.src}
         alt={image.alt}
-        width={1600}
-        height={900}
-        className="h-auto w-full"
+        fill
+        unoptimized={image.src.endsWith(".svg")}
+        sizes="(min-width: 1280px) 1152px, (min-width: 768px) 90vw, 100vw"
+        className="object-contain p-10 sm:p-16"
       />
     </figure>
   );

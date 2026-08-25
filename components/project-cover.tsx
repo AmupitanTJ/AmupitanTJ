@@ -23,7 +23,7 @@ export function ProjectCover({ title, image, className }: ProjectCoverProps) {
           fill
           unoptimized={image.src.endsWith(".svg")}
           sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="motion-safe:duration-slow object-cover grayscale motion-safe:transition-[transform,filter] motion-safe:ease-out motion-safe:group-hover:scale-[1.035] motion-safe:group-hover:contrast-125"
+          className="motion-safe:duration-slow object-contain p-8 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:scale-[1.035] sm:p-10"
         />
       ) : (
         <div className="absolute inset-0 flex items-end bg-[linear-gradient(135deg,rgba(10,10,10,0.08),transparent_55%)] p-4 sm:p-5">
