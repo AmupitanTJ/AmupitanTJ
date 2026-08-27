@@ -4,7 +4,7 @@ import type { Project } from "@/types";
 
 export function WorkIndex({ projects }: { projects: Project[] }) {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-project-grid>
       {projects.map((project, index) => (
         <SectionReveal key={project.slug} delay={index * 0.04}>
           <ProjectCard project={project} />

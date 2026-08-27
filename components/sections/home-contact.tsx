@@ -6,12 +6,18 @@ import { SocialLink } from "@/components/social-link";
 import { home } from "@/content/home";
 import { site } from "@/content/site";
 
-export function HomeContact() {
+export function HomeContact({ standalone = false }: { standalone?: boolean }) {
+  const FormHeading = standalone ? "h2" : "h3";
   return (
     <Container
       as="section"
       id="contact"
-      className="pb-section scroll-mt-20"
+      tabIndex={-1}
+      className={
+        standalone
+          ? "py-section scroll-mt-20 focus:outline-none"
+          : "pb-section scroll-mt-20 focus:outline-none"
+      }
       aria-labelledby="contact-title"
     >
       <div className="border-border-strong bg-card shadow-card grid overflow-hidden rounded-xl border lg:grid-cols-[0.78fr_1.22fr]">
@@ -20,6 +26,7 @@ export function HomeContact() {
             <SectionHeading
               eyebrow="Contact"
               title={home.contactHeading}
+              as={standalone ? "h1" : "h2"}
               id="contact-title"
               description={home.contactBody}
             />
@@ -64,9 +71,9 @@ export function HomeContact() {
           <p className="meta text-muted-foreground uppercase">
             Project enquiry
           </p>
-          <h3 className="mt-3 text-2xl tracking-tight">
+          <FormHeading className="mt-3 text-2xl tracking-tight">
             Start the conversation
-          </h3>
+          </FormHeading>
           <div className="mt-7">
             <LazyContactForm to={site.email} />
           </div>

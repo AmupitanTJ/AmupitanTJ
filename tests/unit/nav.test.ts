@@ -15,6 +15,10 @@ describe("isNavActive", () => {
   });
 
   it("maps inner routes back to the homepage sections", () => {
+    expect(isNavActive("/#work", "/projects/the-judge", "")).toBe(true);
+    expect(isNavActive("/#about", "/about", "")).toBe(true);
+    expect(isNavActive("/#contact", "/contact", "")).toBe(true);
+    expect(isNavActive("/#work", "/about", "")).toBe(false);
     expect(isNavActive("/projects", "/projects/the-judge", "")).toBe(true);
     expect(isNavActive("/notes", "/notes", "")).toBe(true);
     expect(isNavActive("/contact", "/contact", "")).toBe(true);

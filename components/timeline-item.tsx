@@ -6,6 +6,7 @@ type TimelineItemProps = {
   title: string;
   children: ReactNode;
   className?: string;
+  headingAs?: "h3" | "h4";
 };
 
 export function TimelineItem({
@@ -13,6 +14,7 @@ export function TimelineItem({
   title,
   children,
   className,
+  headingAs: Heading = "h3",
 }: TimelineItemProps) {
   return (
     <article
@@ -23,7 +25,9 @@ export function TimelineItem({
     >
       <p className="meta text-muted-foreground pt-1">{marker}</p>
       <div>
-        <h3 className="text-foreground text-xl tracking-tight">{title}</h3>
+        <Heading className="text-foreground text-xl tracking-tight">
+          {title}
+        </Heading>
         <div className="text-muted-foreground mt-2 text-sm leading-6">
           {children}
         </div>

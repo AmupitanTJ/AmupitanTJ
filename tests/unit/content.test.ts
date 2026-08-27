@@ -14,7 +14,7 @@ describe("site metadata", () => {
     expect(site.locale).toBe("en_GB");
     expect(site.social.length).toBeGreaterThan(0);
     expect(site.nav.map((item) => item.href)).toEqual(
-      expect.arrayContaining(["/projects", "/about", "/contact"]),
+      expect.arrayContaining(["/#work", "/#about", "/#contact"]),
     );
     expect(site.resumeHref).toBe("/resume");
   });

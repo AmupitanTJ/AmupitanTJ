@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/button";
 import { NavLink } from "@/components/layout/nav-link";
 import { site } from "@/content/site";
-import { isNavActive } from "@/lib/nav";
+import { isNavActive, scrollToHash } from "@/lib/nav";
+import { useLocationHash } from "@/lib/use-location-hash";
 import {
   Sheet,
   SheetClose,
@@ -20,6 +21,8 @@ import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const pathname = usePathname();
+  const hash = useLocationHash();
+  const pendingSection = useRef<string | null>(null);
   const [open, setOpen] = useState(false);
 
   return (
@@ -39,6 +42,14 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent
         side="right"
+        onCloseAutoFocus={(event) => {
+          const href = pendingSection.current;
+          pendingSection.current = null;
+          if (href && pathname === "/") {
+            event.preventDefault();
+            requestAnimationFrame(() => scrollToHash(href));
+          }
+        }}
         className="border-border bg-background w-[min(100%,20rem)] px-6"
       >
         <SheetHeader className="px-0 text-left">
@@ -53,13 +64,30 @@ export function MobileNav() {
           className="mt-8 flex flex-col gap-1"
         >
           {site.nav.map((item) => {
-            const active = isNavActive(item.href, pathname, "");
+            const active = isNavActive(item.href, pathname, hash);
 
             return (
               <SheetClose asChild key={item.href}>
                 <NavLink
                   href={item.href}
-                  aria-current={active ? "page" : undefined}
+                  onClick={(event) => {
+                    if (
+                      event.button === 0 &&
+                      !event.metaKey &&
+                      !event.ctrlKey &&
+                      !event.shiftKey &&
+                      !event.altKey
+                    ) {
+                      pendingSection.current = item.href;
+                    }
+                  }}
+                  aria-current={
+                    active
+                      ? pathname === "/"
+                        ? "location"
+                        : "page"
+                      : undefined
+                  }
                   className={cn(
                     "border-border focus-visible:outline-signal flex items-baseline justify-between border-b py-3 text-base focus-visible:outline-2 focus-visible:outline-offset-3",
                     active

@@ -18,9 +18,9 @@ export const site: SiteContent = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
   resumeHref: "/resume",
   nav: [
-    { href: "/projects", label: "Projects", code: "01" },
-    { href: "/about", label: "About", code: "02" },
-    { href: "/contact", label: "Contact", code: "03" },
+    { href: "/#work", label: "Projects", code: "01" },
+    { href: "/#about", label: "About", code: "02" },
+    { href: "/#contact", label: "Contact", code: "03" },
   ],
   social: [
     {

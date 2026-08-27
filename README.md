@@ -24,6 +24,18 @@ Reusable primitives: `Container`, `SectionHeading`, `Button`, `Tag`, `ProjectCar
 
 Instrument Sans is used for body copy, Cormorant Garamond for display headings, and JetBrains Mono for tags, labels, dates, and metadata. Focus rings are a 2px black outline with offset. Motion is an optional enhancement: section and page transitions respect reduced-motion preferences, and the decorative cursor follower only loads on fine-pointer devices.
 
+## Unified portfolio sections
+
+The primary desktop and mobile navigation links to `/#work`, `/#about`, and `/#contact`. On the homepage these links scroll to the existing sections; from a case study they return to the corresponding homepage section. Reduced-motion preferences are respected, keyboard focus moves to the destination, and hash changes preserve browser history.
+
+The direct `/projects`, `/about`, and `/contact` routes remain available with their own metadata. They render the same shared sections using a page-level `h1` instead of the homepage `h2`:
+
+- `SelectedWork` and `WorkIndex`: the same compact project cards and responsive one/two/three-column grid everywhere.
+- `HomeAbout`: the full biography, product approach, tools, and current focus from `content/about.ts`. Skills appear once on the homepage.
+- `HomeContact`: the homepage's split contact panel and existing validated form on both routes.
+
+Regression coverage lives in `tests/e2e/unified-sections.spec.ts`. When changing these sections, check matching card dimensions, shared About/contact text, desktop and mobile anchor navigation, keyboard focus, Back navigation, and no-JavaScript section links. Do not recreate separate layouts in the route files.
+
 ## Stack
 
 - Next.js App Router

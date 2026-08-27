@@ -15,7 +15,15 @@ export function NavLink({ href, onClick, ...props }: NavLinkProps) {
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
-    if (event.defaultPrevented) {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      (props.target && props.target !== "_self")
+    ) {
       return;
     }
 
@@ -25,11 +33,10 @@ export function NavLink({ href, onClick, ...props }: NavLinkProps) {
 
     if (pathname === "/" && scrollToHash(resolved)) {
       event.preventDefault();
-      history.replaceState(
-        null,
-        "",
-        resolved.startsWith("#") ? resolved : `#${hashTarget(resolved)}`,
-      );
+      const hash = `#${hashTarget(resolved)}`;
+      if (window.location.hash !== hash) {
+        history.pushState(history.state, "", hash);
+      }
       window.dispatchEvent(new Event("hashchange"));
     }
   }

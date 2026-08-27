@@ -30,6 +30,7 @@ export function scrollToHash(href: string): boolean {
     behavior: prefersReducedMotion() ? "auto" : "smooth",
     block: "start",
   });
+  node.focus({ preventScroll: true });
   return true;
 }
 

@@ -72,7 +72,8 @@ test("keyboard users can skip navigation and reach primary links", async ({
     page.getByRole("link", { name: "Projects", exact: true }),
   ).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/\/projects\/?$/);
+  await expect(page).toHaveURL(/\/#work$/);
+  await expect(page.locator("#work")).toBeFocused();
 });
 
 test("key layouts remain readable without horizontal overflow", async ({

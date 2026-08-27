@@ -1,13 +1,15 @@
 "use client";
 
-import Link from "next/link";
+import { NavLink } from "@/components/layout/nav-link";
 import { usePathname } from "next/navigation";
 import { site } from "@/content/site";
 import { isNavActive } from "@/lib/nav";
+import { useLocationHash } from "@/lib/use-location-hash";
 import { cn } from "@/lib/utils";
 
 export function PrimaryNav() {
   const pathname = usePathname();
+  const hash = useLocationHash();
 
   return (
     <nav
@@ -15,13 +17,15 @@ export function PrimaryNav() {
       className="ml-auto hidden items-center gap-5 md:flex lg:gap-7"
     >
       {site.nav.map((item) => {
-        const active = isNavActive(item.href, pathname, "");
+        const active = isNavActive(item.href, pathname, hash);
 
         return (
-          <Link
+          <NavLink
             key={item.href}
             href={item.href}
-            aria-current={active ? "page" : undefined}
+            aria-current={
+              active ? (pathname === "/" ? "location" : "page") : undefined
+            }
             className={cn(
               "meta duration-base focus-visible:outline-signal relative pb-0.5 transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3",
               "after:bg-signal after:duration-base after:pointer-events-none after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:ease-out",
@@ -31,7 +35,7 @@ export function PrimaryNav() {
             )}
           >
             {item.label}
-          </Link>
+          </NavLink>
         );
       })}
     </nav>

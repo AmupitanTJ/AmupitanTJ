@@ -22,7 +22,9 @@ test("index presents Tosin Joseph Amupitan and primary sections", async ({
 test("projects index and a case file load", async ({ page }) => {
   await page.goto("/projects");
 
-  await expect(page.getByRole("heading", { name: "My work" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Projects I have built" }),
+  ).toBeVisible();
   await page
     .getByRole("article")
     .filter({ hasText: "The Judge" })
@@ -60,11 +62,13 @@ test("resume and notes structure are reachable", async ({ page }) => {
 
 test("about and contact pages are reachable", async ({ page }) => {
   await page.goto("/about");
-  await expect(page.getByRole("heading", { name: "About" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "About me", exact: true }),
+  ).toBeVisible();
 
   await page.goto("/contact");
   await expect(
-    page.getByRole("heading", { name: "Let's build something useful." }),
+    page.getByRole("heading", { name: "Have a product worth building?" }),
   ).toBeVisible();
   await expect(page.getByLabel("Name")).toBeVisible();
 });
@@ -127,7 +131,9 @@ test("same-page links scroll smoothly without hiding content", async ({
   ).toBeInViewport();
 });
 
-test("mobile menu projects link opens the projects index", async ({ page }) => {
+test("mobile menu projects link scrolls to the shared projects section", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.getByRole("button", { name: "Open menu" }).click();
@@ -136,7 +142,8 @@ test("mobile menu projects link opens the projects index", async ({ page }) => {
     .getByRole("link", { name: "Projects" })
     .click();
   await expect(page.getByRole("dialog")).toBeHidden();
-  await expect(page).toHaveURL(/\/projects\/?$/);
+  await expect(page).toHaveURL(/\/#work$/);
+  await expect(page.locator("#work")).toBeFocused();
 });
 
 test("unknown note slugs render the blank plate", async ({ page }) => {
