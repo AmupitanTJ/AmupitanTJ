@@ -22,7 +22,7 @@ export function SiteHeader() {
             priority
             className="invert"
           />
-          <span className="font-display text-xl font-semibold tracking-[-0.08em] italic">
+          <span className="font-wordmark text-[1.05rem] leading-none font-bold tracking-[-0.1em]">
             TJ
           </span>
           <span className="sr-only"> {site.name} home</span>

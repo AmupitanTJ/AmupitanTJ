@@ -3,6 +3,7 @@ import {
   Cormorant_Garamond,
   Instrument_Sans,
   JetBrains_Mono,
+  Manrope,
 } from "next/font/google";
 import { PrivacyAnalytics } from "@/components/analytics/privacy-analytics";
 import { WebsiteJsonLd } from "@/components/layout/json-ld";
@@ -24,6 +25,12 @@ const cormorant = Cormorant_Garamond({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
+});
+
+const brandFont = Manrope({
+  variable: "--font-brand",
+  subsets: ["latin"],
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -68,7 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${instrumentSans.variable} ${cormorant.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${instrumentSans.variable} ${cormorant.variable} ${jetbrainsMono.variable} ${brandFont.variable} h-full antialiased`}
     >
       <body className="bg-background text-foreground min-h-full font-sans">
         <WebsiteJsonLd />
