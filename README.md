@@ -85,6 +85,8 @@ RESEND_API_KEY=
 
 Every public page defines a unique title, description, canonical URL, Open Graph payload, and Twitter card. Dynamic project and note routes generate metadata from their typed content records. The home sharing image, favicon, Apple icon, sitemap, robots file, and web manifest are generated through Next.js metadata file conventions.
 
+Regenerate the browser favicon from the existing logo in `app/icon.png` with `node scripts/generate-favicon.mjs`. This creates opaque 16px, 32px, and 48px frames in `app/favicon.ico`; zero-alpha frames make the browser tab icon invisible even when the file loads successfully. `tests/unit/favicon.test.ts` checks that every frame contains visible, opaque logo pixels.
+
 Set `SITE_URL` to the final HTTPS origin before deploying. A localhost fallback is used only for development.
 
 The home page emits `Person` and `WebSite` JSON-LD. Project images use `next/image` with explicit aspect ratios or dimensions to reserve space before image files load.
