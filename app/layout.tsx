@@ -46,6 +46,15 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
+  icons: {
+    // Version the standalone mark so browsers can refresh an older cached icon.
+    icon: {
+      url: "/images/brand-mark.png?v=2",
+      type: "image/png",
+      sizes: "256x256",
+    },
+    shortcut: "/images/brand-mark.png?v=2",
+  },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.description,
