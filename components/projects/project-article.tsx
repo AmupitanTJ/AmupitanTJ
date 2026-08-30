@@ -52,11 +52,18 @@ export function ProjectArticle({
                 ))}
               </ul>
             </div>
-            {project.liveUrl ? (
-              <SocialLink href={project.liveUrl} label="Live site" />
-            ) : null}
-            {project.githubUrl ? (
-              <SocialLink href={project.githubUrl} label="GitHub" />
+            {project.liveUrl || project.githubUrl ? (
+              <div className="border-border border-t pt-5">
+                <p className="meta text-muted-foreground">Project links</p>
+                <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  {project.liveUrl ? (
+                    <SocialLink href={project.liveUrl} label="Live site" />
+                  ) : null}
+                  {project.githubUrl ? (
+                    <SocialLink href={project.githubUrl} label="GitHub" />
+                  ) : null}
+                </div>
+              </div>
             ) : null}
           </aside>
 
