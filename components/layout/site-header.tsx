@@ -12,7 +12,7 @@ export function SiteHeader() {
       <Container className="flex h-16 min-w-0 items-center gap-2 sm:gap-3">
         <Link
           href="/"
-          className="text-foreground focus-visible:outline-signal flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-3"
+          className="text-foreground focus-visible:outline-signal flex shrink-0 items-center gap-1.5 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-3"
         >
           <Image
             src="/images/brand-mark.png"
@@ -22,7 +22,7 @@ export function SiteHeader() {
             priority
             className="invert"
           />
-          <span className="font-wordmark text-[1.05rem] leading-none font-bold tracking-[-0.1em]">
+          <span className="font-wordmark text-[1.2rem] leading-none font-bold tracking-[-0.08em]">
             TJ
           </span>
           <span className="sr-only"> {site.name} home</span>
