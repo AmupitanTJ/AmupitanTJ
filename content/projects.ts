@@ -52,7 +52,8 @@ export const projects: Project[] = [
       alt: "The Judge app icon showing white barrister tabs on black fabric",
     },
     gallery: [],
-    liveUrl: null,
+    liveUrl:
+      "https://the-judge-9wb4mmqlh-amupitantjs-projects.vercel.app/",
     githubUrl: "https://github.com/AmupitanTJ/the-judge",
     challenge:
       "Present a dense legal research workflow in a way that feels calm, direct, and trustworthy while keeping source material close to every conclusion.",
