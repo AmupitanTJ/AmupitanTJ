@@ -18,8 +18,8 @@ export const projects: Project[] = [
       alt: "Clarita app icon showing an open book with a small spark",
     },
     gallery: [],
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: "https://clarita-pi.vercel.app/",
+    githubUrl: "https://github.com/AmupitanTJ/clarita",
     challenge:
       "Turn a product concept into a dependable interface that stays clear across screen sizes, interaction states, and repeated user workflows.",
     solution:
