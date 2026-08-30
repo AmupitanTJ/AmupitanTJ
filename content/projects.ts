@@ -53,7 +53,7 @@ export const projects: Project[] = [
     },
     gallery: [],
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/AmupitanTJ/the-judge",
     challenge:
       "Present a dense legal research workflow in a way that feels calm, direct, and trustworthy while keeping source material close to every conclusion.",
     solution:
