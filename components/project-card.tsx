@@ -47,24 +47,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </li>
           ))}
         </ul>
-        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-          <Link
-            href={`/projects/${project.slug}`}
-            className="text-foreground duration-base hover:text-signal focus-visible:outline-signal inline-flex items-center gap-1.5 text-sm transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
-          >
-            View case study
-            <ArrowUpRight
-              className="motion-safe:duration-base size-3.5 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
-              aria-hidden="true"
-            />
-          </Link>
-          {project.liveUrl ? (
-            <SocialLink href={project.liveUrl} label="Live site" />
-          ) : null}
-          {project.githubUrl ? (
-            <SocialLink href={project.githubUrl} label="GitHub" />
-          ) : null}
-        </div>
+        <Link
+          href={`/projects/${project.slug}`}
+          className="text-foreground duration-base hover:text-signal focus-visible:outline-signal mt-5 inline-flex w-fit items-center gap-1.5 text-sm transition-colors ease-out focus-visible:outline-2 focus-visible:outline-offset-3"
+        >
+          View case study
+          <ArrowUpRight
+            className="motion-safe:duration-base size-3.5 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
+        </Link>
+        {project.liveUrl || project.githubUrl ? (
+          <div className="border-border mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 border-t pt-4">
+            {project.liveUrl ? (
+              <SocialLink href={project.liveUrl} label="Live site" />
+            ) : null}
+            {project.githubUrl ? (
+              <SocialLink href={project.githubUrl} label="GitHub" />
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </article>
   );
