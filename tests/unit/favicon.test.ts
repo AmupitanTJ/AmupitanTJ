@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -9,8 +9,17 @@ const sharp: typeof import("sharp").default = createRequire(
 )("sharp");
 
 describe("browser favicon", () => {
+  it("keeps the public brand mark visible without an automatic ICO override", async () => {
+    expect(existsSync(resolve("app/favicon.ico"))).toBe(false);
+    const icon = sharp(resolve("public/images/brand-mark.png"));
+    const metadata = await icon.metadata();
+    expect(metadata.width).toBe(256);
+    expect(metadata.height).toBe(256);
+    expect((await icon.stats()).isOpaque).toBe(true);
+  });
+
   it("contains an opaque, visible logo in every ICO frame", async () => {
-    const ico = readFileSync(resolve("app/favicon.ico"));
+    const ico = readFileSync(resolve("public/favicon.ico"));
     expect(ico.readUInt16LE(0)).toBe(0);
     expect(ico.readUInt16LE(2)).toBe(1);
     const count = ico.readUInt16LE(4);

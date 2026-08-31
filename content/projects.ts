@@ -39,36 +39,46 @@ export const projects: Project[] = [
     slug: "the-judge",
     title: "The Judge",
     shortDescription:
-      "A source-led Nigerian legal research product designed for clear, authoritative answers.",
+      "An evidence-first Nigerian legal research workspace with verified authorities and persistent matters.",
     longDescription:
-      "The Judge is a completed legal research product for navigating Nigerian law. It brings questions, source-backed answers, research history, documents, matters, and a reference library into one focused workspace.",
+      "The Judge is an authenticated legal intelligence workspace for researching Nigerian law. It searches a verified legal corpus, links every supported answer to exact source passages, preserves research history and citations, and keeps practitioner matters tied to the signed-in user.",
     year: "2026",
-    role: "Frontend and product engineering",
+    role: "Full-stack product engineering",
     status: "production",
     featured: true,
-    stack: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    stack: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Tailwind CSS",
+    ],
     coverImage: {
       src: "/projects/the-judge-app-icon.png",
       alt: "The Judge app icon showing white barrister tabs on black fabric",
     },
     gallery: [],
     liveUrl:
-      "https://the-judge-9wb4mmqlh-amupitantjs-projects.vercel.app/",
+      "https://the-judge-flax.vercel.app/",
     githubUrl: "https://github.com/AmupitanTJ/the-judge",
     challenge:
-      "Present a dense legal research workflow in a way that feels calm, direct, and trustworthy while keeping source material close to every conclusion.",
+      "Make Nigerian legal research useful without presenting unsupported conclusions, while keeping authorities, research history, and private matter work organised around each authenticated user.",
     solution:
-      "I developed a structured React interface that separates asking, researching, reviewing sources, and organising documents without losing context. TypeScript keeps the product states and reusable interface contracts explicit.",
+      "I built a Next.js workspace with account-scoped API routes, a searchable verified corpus, evidence-ranked research responses, and persistent Neon PostgreSQL records for users, matters, research sessions, and citations. When verified coverage is insufficient, the product returns a clear limitation instead of inventing an answer.",
     keyDecisions: [
-      "Prioritise source visibility and readable hierarchy throughout the research experience.",
-      "Separate research, library, documents, and matters into distinct but connected workflows.",
-      "Use restrained interaction patterns to support focus in an information-dense product.",
+      "Require source-verified passages for every supported answer and expose the exact authority beside the response.",
+      "Keep matters, saved research, and citations account-scoped through authenticated server routes.",
+      "Use a typed relational model for users, legal documents, passages, matters, research sessions, and citations.",
     ],
     outcomes: [
-      "Delivered a cohesive legal research workspace with a clear question-to-source flow.",
-      "Created a reusable interface system for research, documents, and matter organisation.",
+      "Delivered working professional and plain-language research modes with explicit coverage limits.",
+      "Added searchable authorities, persistent research history, citation trails, and private matter creation.",
     ],
-    nextSteps: [],
+    nextSteps: [
+      "Expand the reviewed Nigerian legal corpus beyond the current federal constitutional coverage.",
+      "Promote the verified Vercel preview to a stable production deployment.",
+    ],
   },
   {
     slug: "vantraclip",

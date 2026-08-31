@@ -8,7 +8,11 @@ const sharp = createRequire(require.resolve("next/package.json"))("sharp");
 const sizes = [16, 32, 48];
 const images = await Promise.all(
   sizes.map((size) =>
-    sharp(fileURLToPath(new URL("../app/icon.png", import.meta.url)))
+    sharp(
+      fileURLToPath(
+        new URL("../public/images/brand-mark.png", import.meta.url),
+      ),
+    )
       .resize(size, size)
       .removeAlpha()
       .ensureAlpha(1)
@@ -33,7 +37,7 @@ images.forEach((image, index) => {
 });
 
 await writeFile(
-  new URL("../app/favicon.ico", import.meta.url),
+  new URL("../public/favicon.ico", import.meta.url),
   Buffer.concat([header, ...images]),
 );
 console.log("Generated opaque logo favicons at 16, 32, and 48 pixels.");

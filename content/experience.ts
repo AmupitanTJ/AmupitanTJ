@@ -23,10 +23,10 @@ export const experience: Experience[] = [
     end: "2026",
     current: false,
     summary:
-      "Delivered a React and TypeScript legal research experience centred on source-backed answers and organised professional workflows.",
+      "Built an authenticated Nigerian legal research workspace with verified authorities, persistent research history, and private matter management.",
     highlights: [
-      "Created a focused question-to-source interface for Nigerian legal research.",
-      "Structured connected workflows for research, library materials, documents, and matters.",
+      "Implemented evidence-ranked answers that cite exact source passages and clearly stop when verified coverage is insufficient.",
+      "Persisted users, matters, research sessions, and citation trails with Neon PostgreSQL and typed server routes.",
     ],
   },
   {

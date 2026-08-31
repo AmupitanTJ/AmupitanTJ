@@ -47,13 +47,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
   icons: {
-    // Version the standalone mark so browsers can refresh an older cached icon.
+    // Use the original public logo directly, not the ICO compatibility fallback.
     icon: {
-      url: "/images/brand-mark.png?v=2",
+      url: "/images/brand-mark.png?v=3",
       type: "image/png",
       sizes: "256x256",
     },
-    shortcut: "/images/brand-mark.png?v=2",
+    shortcut: "/images/brand-mark.png?v=3",
   },
   openGraph: {
     title: `${site.name} — ${site.role}`,
