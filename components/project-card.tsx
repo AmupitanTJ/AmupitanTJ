@@ -16,7 +16,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className="group border-border-strong bg-card shadow-card duration-base hover:border-foreground flex h-full min-w-0 flex-col overflow-hidden rounded-lg border transition-[border-color,transform,box-shadow] ease-out hover:shadow-[8px_8px_0_rgb(245_245_242/0.12)] motion-safe:hover:-translate-y-1">
-      <ProjectCover title={project.title} image={project.coverImage} />
+      <ProjectCover
+        title={project.title}
+        image={project.coverImage}
+        imageClassName={
+          project.slug === "the-judge" ? "p-4 sm:p-5" : undefined
+        }
+      />
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p

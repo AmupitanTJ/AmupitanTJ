@@ -7,6 +7,7 @@ import { SocialLink } from "@/components/social-link";
 import { Tag } from "@/components/tag";
 import { statusLabel } from "@/lib/projects";
 import { isTodo } from "@/lib/todo";
+import { cn } from "@/lib/utils";
 import type { MediaAsset, Project } from "@/types";
 
 type ProjectArticleProps = {
@@ -35,7 +36,13 @@ export function ProjectArticle({
           </p>
         </SectionReveal>
 
-        <Cover image={project.coverImage} title={project.title} />
+        <Cover
+          image={project.coverImage}
+          title={project.title}
+          imageClassName={
+            project.slug === "the-judge" ? "p-6 sm:p-8" : undefined
+          }
+        />
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[14rem_1fr]">
           <aside className="space-y-6">
@@ -130,7 +137,15 @@ export function ProjectArticle({
   );
 }
 
-function Cover({ image, title }: { image: MediaAsset | null; title: string }) {
+function Cover({
+  image,
+  title,
+  imageClassName,
+}: {
+  image: MediaAsset | null;
+  title: string;
+  imageClassName?: string;
+}) {
   if (!image) {
     return (
       <div className="border-border-strong mt-10 flex min-h-64 items-end overflow-hidden rounded-lg border bg-[linear-gradient(135deg,rgba(245,245,242,0.09),transparent_55%)] p-6 sm:min-h-80 sm:p-8">
@@ -147,9 +162,11 @@ function Cover({ image, title }: { image: MediaAsset | null; title: string }) {
         src={image.src}
         alt={image.alt}
         fill
-        unoptimized={image.src.endsWith(".svg")}
+        unoptimized={
+          image.src.endsWith(".svg") || image.src.endsWith(".png")
+        }
         sizes="(min-width: 1280px) 1152px, (min-width: 768px) 90vw, 100vw"
-        className="object-contain p-10 sm:p-16"
+        className={cn("object-contain p-10 sm:p-16", imageClassName)}
       />
     </figure>
   );

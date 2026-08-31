@@ -56,7 +56,7 @@ export const projects: Project[] = [
     ],
     coverImage: {
       src: "/projects/the-judge-app-icon.png",
-      alt: "The Judge app icon showing white scales of justice in a laurel wreath with a gold star on black",
+      alt: "The Judge app icon showing white scales of justice in a laurel wreath with a gold star",
     },
     gallery: [],
     liveUrl:

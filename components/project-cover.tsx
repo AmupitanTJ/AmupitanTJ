@@ -6,9 +6,15 @@ type ProjectCoverProps = {
   title: string;
   image: MediaAsset | null;
   className?: string;
+  imageClassName?: string;
 };
 
-export function ProjectCover({ title, image, className }: ProjectCoverProps) {
+export function ProjectCover({
+  title,
+  image,
+  className,
+  imageClassName,
+}: ProjectCoverProps) {
   return (
     <div
       className={cn(
@@ -21,9 +27,14 @@ export function ProjectCover({ title, image, className }: ProjectCoverProps) {
           src={image.src}
           alt={image.alt}
           fill
-          unoptimized={image.src.endsWith(".svg")}
+          unoptimized={
+            image.src.endsWith(".svg") || image.src.endsWith(".png")
+          }
           sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="motion-safe:duration-slow object-contain p-8 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:scale-[1.035] sm:p-10"
+          className={cn(
+            "motion-safe:duration-slow object-contain p-8 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:scale-[1.035] sm:p-10",
+            imageClassName,
+          )}
         />
       ) : (
         <div className="absolute inset-0 flex items-end bg-[linear-gradient(135deg,rgba(10,10,10,0.08),transparent_55%)] p-4 sm:p-5">
