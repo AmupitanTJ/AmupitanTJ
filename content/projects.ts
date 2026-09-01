@@ -17,7 +17,12 @@ export const projects: Project[] = [
       src: "/projects/clarita-app-icon.svg",
       alt: "Clarita app icon showing an open book with a small spark",
     },
-    gallery: [],
+    gallery: [
+      {
+        src: "/projects/clarita-live.png",
+        alt: "Clarita home screen with Scripture-focused prompts and navigation",
+      },
+    ],
     liveUrl: "https://clarita-pi.vercel.app/",
     githubUrl: "https://github.com/AmupitanTJ/clarita",
     challenge:
@@ -58,9 +63,13 @@ export const projects: Project[] = [
       src: "/projects/the-judge-app-icon.png",
       alt: "The Judge app icon showing white scales of justice in a laurel wreath with a gold star",
     },
-    gallery: [],
-    liveUrl:
-      "https://the-judge-flax.vercel.app/",
+    gallery: [
+      {
+        src: "/projects/the-judge-live.png",
+        alt: "The Judge legal research workspace with research, library, documents, and matters navigation",
+      },
+    ],
+    liveUrl: "https://the-judge-flax.vercel.app/",
     githubUrl: "https://github.com/AmupitanTJ/the-judge",
     challenge:
       "Make Nigerian legal research useful without presenting unsupported conclusions, while keeping authorities, research history, and private matter work organised around each authenticated user.",
@@ -77,7 +86,7 @@ export const projects: Project[] = [
     ],
     nextSteps: [
       "Expand the reviewed Nigerian legal corpus beyond the current federal constitutional coverage.",
-      "Promote the verified Vercel preview to a stable production deployment.",
+      "Continue expanding authority coverage and refining collaborative research workflows.",
     ],
   },
   {
@@ -104,7 +113,7 @@ export const projects: Project[] = [
       alt: "VantraClip green logo mark",
     },
     gallery: [],
-    liveUrl: "https://vantraclip.com/",
+    liveUrl: null,
     githubUrl: "https://github.com/AmupitanTJ/Vantraclip",
     challenge:
       "Coordinate a long-running media workflow that can accept a source video, identify useful moments, create readable captions, reframe footage, and export clips without blocking the main application.",

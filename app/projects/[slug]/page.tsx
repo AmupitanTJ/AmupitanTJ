@@ -33,6 +33,13 @@ export async function generateMetadata({ params }: ProjectSlugPageProps) {
     title: project.title,
     description: project.shortDescription,
     path: `/projects/${project.slug}`,
+    image:
+      (project.gallery[0] ?? project.coverImage)
+        ? {
+            url: (project.gallery[0] ?? project.coverImage)!.src,
+            alt: (project.gallery[0] ?? project.coverImage)!.alt,
+          }
+        : undefined,
   });
 }
 

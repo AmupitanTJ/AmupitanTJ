@@ -19,9 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <ProjectCover
         title={project.title}
         image={project.coverImage}
-        imageClassName={
-          project.slug === "the-judge" ? "p-4 sm:p-5" : undefined
-        }
+        imageClassName={project.slug === "the-judge" ? "p-4 sm:p-5" : undefined}
       />
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -66,10 +64,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {project.liveUrl || project.githubUrl ? (
           <div className="border-border mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 border-t pt-4">
             {project.liveUrl ? (
-              <SocialLink href={project.liveUrl} label="Live site" />
+              <SocialLink
+                href={project.liveUrl}
+                label="Live site"
+                analyticsEvent={`Project live site: ${project.title}`}
+              />
             ) : null}
             {project.githubUrl ? (
-              <SocialLink href={project.githubUrl} label="GitHub" />
+              <SocialLink
+                href={project.githubUrl}
+                label="GitHub"
+                analyticsEvent={`Project GitHub: ${project.title}`}
+              />
             ) : null}
           </div>
         ) : null}

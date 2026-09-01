@@ -81,6 +81,11 @@ export function ContactForm({ to }: ContactFormProps) {
       }
 
       reset(defaultValues);
+      window.dispatchEvent(
+        new CustomEvent("portfolio:analytics", {
+          detail: { name: "Contact form submitted" },
+        }),
+      );
       setSubmission({
         kind: "success",
         message: "Thanks—your message has been sent successfully.",

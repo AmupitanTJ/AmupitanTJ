@@ -7,7 +7,7 @@ vi.mock("@/lib/email", () => ({
   sendContactEmail,
 }));
 
-import { POST } from "@/app/api/contact/route";
+import { POST, resetContactRateLimitForTests } from "@/app/api/contact/route";
 
 const validMessage = {
   name: "Ada Lovelace",
@@ -21,6 +21,7 @@ describe("POST /api/contact", () => {
   beforeEach(() => {
     sendContactEmail.mockReset();
     sendContactEmail.mockResolvedValue({ id: "email_123" });
+    resetContactRateLimitForTests();
   });
 
   it("validates incoming JSON on the server", async () => {
@@ -57,6 +58,18 @@ describe("POST /api/contact", () => {
 
     expect(response.status).toBe(502);
     expect(body.message).not.toContain("provider detail");
+  });
+
+  it("rate limits repeated submissions from the same client", async () => {
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const response = await POST(makeRequest(validMessage));
+      expect(response.status).toBe(200);
+    }
+
+    const response = await POST(makeRequest(validMessage));
+    expect(response.status).toBe(429);
+    expect(response.headers.get("Retry-After")).toBeTruthy();
+    expect(sendContactEmail).toHaveBeenCalledTimes(5);
   });
 });
 

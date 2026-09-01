@@ -1,7 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/", title: "Tosin Joseph Amupitan — Web Developer" },
+  {
+    path: "/",
+    title: "Tosin Joseph Amupitan — Full-stack Product Engineer",
+  },
   { path: "/projects", title: "Projects — Tosin Joseph Amupitan" },
   { path: "/about", title: "About — Tosin Joseph Amupitan" },
   { path: "/resume", title: "Profile — Tosin Joseph Amupitan" },
@@ -41,7 +44,7 @@ test("every public page has unique canonical and sharing metadata", async ({
     );
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
-      /opengraph-image/,
+      entry.path.startsWith("/projects/") ? /\/projects\// : /opengraph-image/,
     );
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
       "content",
@@ -77,7 +80,7 @@ test("metadata routes expose sitemap, robots, and manifest", async ({
   const manifest = await request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);
   expect(await manifest.json()).toMatchObject({
-    name: "Tosin Joseph Amupitan — Web Developer",
+    name: "Tosin Joseph Amupitan — Full-stack Product Engineer",
     start_url: "/",
   });
 });

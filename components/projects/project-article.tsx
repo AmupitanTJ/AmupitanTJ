@@ -64,10 +64,18 @@ export function ProjectArticle({
                 <p className="meta text-muted-foreground">Project links</p>
                 <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-3">
                   {project.liveUrl ? (
-                    <SocialLink href={project.liveUrl} label="Live site" />
+                    <SocialLink
+                      href={project.liveUrl}
+                      label="Live site"
+                      analyticsEvent={`Project live site: ${project.title}`}
+                    />
                   ) : null}
                   {project.githubUrl ? (
-                    <SocialLink href={project.githubUrl} label="GitHub" />
+                    <SocialLink
+                      href={project.githubUrl}
+                      label="GitHub"
+                      analyticsEvent={`Project GitHub: ${project.title}`}
+                    />
                   ) : null}
                 </div>
               </div>
@@ -162,9 +170,8 @@ function Cover({
         src={image.src}
         alt={image.alt}
         fill
-        unoptimized={
-          image.src.endsWith(".svg") || image.src.endsWith(".png")
-        }
+        unoptimized={image.src.endsWith(".svg")}
+        priority
         sizes="(min-width: 1280px) 1152px, (min-width: 768px) 90vw, 100vw"
         className={cn("object-contain p-10 sm:p-16", imageClassName)}
       />
@@ -193,6 +200,7 @@ function Gallery({ images }: { images: MediaAsset[] }) {
               alt={image.alt}
               width={800}
               height={600}
+              sizes="(min-width: 1024px) 430px, (min-width: 640px) 45vw, 100vw"
               className="h-auto w-full"
             />
           </li>

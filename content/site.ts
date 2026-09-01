@@ -3,11 +3,11 @@ import type { SiteContent } from "@/types";
 export const site: SiteContent = {
   name: "Tosin Joseph Amupitan",
   shortName: "TJ",
-  role: "Web Developer",
+  role: "Full-stack Product Engineer",
   location: "Abuja, Nigeria",
   headline: "Building reliable digital products.",
   description:
-    "I design and build responsive web products with React and TypeScript. My work includes Clarita, The Judge, and the ongoing VantraClip platform.",
+    "I design and engineer reliable full-stack products with React, TypeScript, Next.js, Node.js, and PostgreSQL.",
   locale: "en_GB",
   focus:
     "Building production-minded interfaces and full-stack products with React, TypeScript, Next.js, Node.js, and PostgreSQL.",

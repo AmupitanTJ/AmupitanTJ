@@ -4,7 +4,7 @@ import { skills } from "@/content/skills";
 export const about: AboutContent = {
   title: "About me",
   intro: [
-    "I am Tosin Joseph Amupitan, a web developer based in Abuja. I design and build modern web products with a strong focus on clarity, responsive behaviour, and dependable implementation.",
+    "I am Tosin Joseph Amupitan, a full-stack product engineer based in Abuja. I design and build modern web products with a strong focus on clarity, responsive behaviour, and dependable implementation.",
     "React and TypeScript are central to most of my work. I use them to create reusable interface systems, model product behaviour clearly, and connect polished frontends to reliable services and data.",
     "My completed product work includes Clarita and The Judge. I am currently building VantraClip, which extends that experience into media processing, background jobs, storage, PostgreSQL, FFmpeg, and external API integrations.",
   ],

@@ -8,6 +8,7 @@ export const metadata = createMetadata({
   title: "Notes",
   description: "Future development notes from Tosin Joseph Amupitan.",
   path: "/notes",
+  robots: { index: false, follow: true },
 });
 
 export default function NotesPage() {

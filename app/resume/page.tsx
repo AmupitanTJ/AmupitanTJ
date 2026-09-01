@@ -25,6 +25,19 @@ export default function ResumePage() {
         into dependable web applications.
       </PageIntro>
 
+      <div className="mt-8">
+        <Button asChild variant="secondary">
+          <a
+            href="/tosin-joseph-amupitan-resume.pdf"
+            download
+            data-analytics-event="Resume downloaded"
+          >
+            Download résumé
+            <Download aria-hidden="true" />
+          </a>
+        </Button>
+      </div>
+
       <section className="mt-16" aria-labelledby="experience-title">
         <SectionReveal>
           <SectionHeading
@@ -84,3 +97,5 @@ export default function ResumePage() {
     </Container>
   );
 }
+import { Download } from "lucide-react";
+import { Button } from "@/components/button";

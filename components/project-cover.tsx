@@ -7,6 +7,7 @@ type ProjectCoverProps = {
   image: MediaAsset | null;
   className?: string;
   imageClassName?: string;
+  priority?: boolean;
 };
 
 export function ProjectCover({
@@ -14,6 +15,7 @@ export function ProjectCover({
   image,
   className,
   imageClassName,
+  priority = false,
 }: ProjectCoverProps) {
   return (
     <div
@@ -27,9 +29,8 @@ export function ProjectCover({
           src={image.src}
           alt={image.alt}
           fill
-          unoptimized={
-            image.src.endsWith(".svg") || image.src.endsWith(".png")
-          }
+          unoptimized={image.src.endsWith(".svg")}
+          priority={priority}
           sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={cn(
             "motion-safe:duration-slow object-contain p-8 motion-safe:transition-transform motion-safe:ease-out motion-safe:group-hover:scale-[1.035] sm:p-10",

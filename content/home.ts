@@ -1,7 +1,7 @@
 import type { HomeContent } from "@/types";
 
 export const home: HomeContent = {
-  eyebrow: "Tosin Joseph Amupitan · Web Developer · Abuja",
+  eyebrow: "Tosin Joseph Amupitan · Full-stack Product Engineer · Abuja",
   heading: "I build reliable web products that move ideas forward.",
   lede: "I design and engineer polished, responsive applications with React and TypeScript—from focused product interfaces to full-stack platforms.",
   availability:
@@ -19,7 +19,7 @@ export const home: HomeContent = {
     "PostgreSQL",
   ],
   about: [
-    "I am Tosin Joseph Amupitan, a web developer based in Abuja. React and TypeScript sit at the centre of my work, helping me build clear interfaces, reusable systems, and dependable product experiences.",
+    "I am Tosin Joseph Amupitan, a full-stack product engineer based in Abuja. React and TypeScript sit at the centre of my work, helping me build clear interfaces, reusable systems, and dependable product experiences.",
     "My product work includes Clarita and The Judge, alongside VantraClip—an AI-assisted video platform I am actively developing across the frontend, backend, data, and media-processing layers.",
   ],
   contactHeading: "Have a product worth building?",

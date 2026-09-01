@@ -59,7 +59,7 @@ export function HomeHero() {
             />
           </div>
           <div className="bg-foreground text-background absolute -right-2 -bottom-3 px-4 py-2 sm:-right-4">
-            <span className="meta uppercase">Web developer · Abuja</span>
+            <span className="meta uppercase">Product engineer · Abuja</span>
           </div>
         </SectionReveal>
       </div>
